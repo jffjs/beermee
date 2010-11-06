@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101106212403) do
+ActiveRecord::Schema.define(:version => 20101106220803) do
 
   create_table "beers", :force => true do |t|
     t.string   "name"
@@ -34,6 +34,29 @@ ActiveRecord::Schema.define(:version => 20101106212403) do
     t.text     "info"
     t.string   "address"
     t.string   "website"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "countries", :force => true do |t|
+    t.string   "iso"
+    t.string   "name"
+    t.string   "printable_name"
+    t.string   "iso3"
+    t.integer  "numcode"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "states", :force => true do |t|
+    t.string   "name"
+    t.string   "abbreviation"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "styles", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

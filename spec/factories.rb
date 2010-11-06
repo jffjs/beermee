@@ -10,10 +10,6 @@ end
 
 Factory.define(:style) do |style|
   style.name        "American Stout"
-  style.aroma       "A good smell"
-  style.flavor      "Tastes real good"
-  style.appearance  "Black as my soul"
-  style.mouthfeel   "Feels real good"
 end
 
 Factory.define(:brewery) do |brewery|
