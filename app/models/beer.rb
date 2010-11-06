@@ -19,8 +19,8 @@
 class Beer < ActiveRecord::Base
   attr_accessible :name, :brewery_id, :style_id, :description, :abv, :ibu, :website
 
-#  belongs_to :brewery
-#  belongs_to :style
+  belongs_to :brewery
+  belongs_to :style
 
   validates :name,        :presence => true,
                           :length => { :maximum => 50 } 
