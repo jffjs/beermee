@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101106220803) do
+ActiveRecord::Schema.define(:version => 20101107052752) do
 
   create_table "beers", :force => true do |t|
     t.string   "name"
@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(:version => 20101106220803) do
   create_table "countries", :force => true do |t|
     t.string   "iso"
     t.string   "name"
-    t.string   "printable_name"
     t.string   "iso3"
     t.integer  "numcode"
     t.datetime "created_at"

@@ -1,0 +1,40 @@
+<%= form_for @beer  do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :style_id %><br />
+    <% styles = Style.find(:all).sort! { |a,b| a.name.downcase <=> b.name.downcase };
+       styles_array = styles.collect { |c| [c.name, c.id] } %>
+    <%= select("beer", "style_id", styles_array, 
+                                   :include_blank => true) %>
+  </div>
+  <div class="field">
+    <%= f.label :brewery_id %><br />
+    <% brewery_name = @beer.brewery.name unless @beer.brewery.nil? %>
+    <%= autocomplete_field :brewery, :name, autocomplete_brewery_name_breweries_path, 
+          :id_element => "#beer_brewery_id", :value => brewery_name %>
+    <%= f.hidden_field :brewery_id %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :website %><br />
+    <%= f.text_field :website %>
+  </div>
+  <div class="field">
+    <%= f.label :abv, "ABV" %><br />
+    <%= f.text_field :abv %>
+  </div>
+  <div class="field">
+    <%= f.label :ibu, "IBU" %><br />
+    <%= f.text_field :ibu %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>
