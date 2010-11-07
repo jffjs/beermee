@@ -1,0 +1,11 @@
+<li class="index_item" >
+  <%= link_to brewery.name, brewery %>
+  <%= link_to "delete", brewery, :method => :delete, :confirm => "Are you sure?",
+                                 :title => "Delete #{brewery.name}", :class => "delete_link" %>
+  <div class="short_address"><%= brewery.city %>,
+                              <% if brewery.in_us? %>
+                                <%= brewery.state.name if brewery.in_us? %>,
+                              <% end %>
+                              <%= brewery.country.name %>
+  </div>
+</li>

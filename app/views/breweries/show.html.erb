@@ -1,0 +1,24 @@
+<div id="show_container" >
+  <div id="show_header">
+    <%= link_to "Edit", edit_brewery_path, :class => "edit_link" %>
+    <h2><%= @brewery.name %></h2>
+  </div>
+  <div id="show_info" >
+    <%= link_to "Official Website", @brewery.website, 
+                :class => "external" unless @brewery.website.blank? %>
+    <div class="full_address">
+      <%= @brewery.address %><br />
+      <%= @brewery.city %>,
+      <% if @brewery.in_us? %>
+        <%= @brewery.state.name %>
+      <% else %>
+        <%= @brewery.country.name %>
+      <% end %>
+      <%= @brewery.zipcode %><br />
+    </div>
+    <br />
+    <%= @brewery.info %>
+    <%= render 'beer_list' %>
+  </div>
+</div>
+<%= render 'shared/articles' %>

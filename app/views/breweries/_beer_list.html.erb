@@ -1,0 +1,11 @@
+<div id="brewery_beer_list">
+  <%= link_to "Add", new_beer_path(:brewery_id => @brewery.id), :class => "round add_button_small" %>
+  <div>
+  <h3>Beers</h3> 
+  <ul>
+  <% @brewery.beers.each do |beer| %>
+    <li><%= link_to beer.name, beer %></li>
+  <% end %>
+  </ul>
+  </div>
+</div>

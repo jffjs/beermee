@@ -1,0 +1,9 @@
+<%= link_to "Add a brewery", new_brewery_path, :class => "round add_button" %>
+<div class="index_list" >
+  <h1>Breweries</h1>
+  <%= will_paginate %>
+  <ul class="breweries">
+    <%= render @breweries %>
+  </ul>
+  <%= will_paginate %>
+</div>

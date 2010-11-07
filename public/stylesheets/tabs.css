@@ -1,0 +1,46 @@
+/* begin css tabs */
+ 
+ul#tabnav { /* general settings */
+text-align: left; /* set to left, right or center */
+margin: 0 0 1em 0; /* set margins as desired */
+/*font: bold 11px verdana, arial, sans-serif;  set font as desired */
+border-bottom: 1px solid #6c6; /* set border COLOR as desired */
+list-style-type: none;
+padding: 3px 10px 3px 10px; /* THIRD number must change with respect to padding-top (X) below */
+width: 400px;
+}
+ 
+ul#tabnav li { /* do not change */
+display: inline;
+}
+ 
+div#all_tab li.all_tab, div#reviews_tab li.reviews_tab, div#news_tab li.news_tab, div#disc_tab li.disc_tab { /* settings for selected tab */
+border-bottom: 1px solid #fff; /* set border color to page background color */
+background-color: #fff; /* set background color to match above border color */
+}
+ 
+div#all_tab li.all_tab a, div#reviews_tab li.reviews_tab a, div#news_tab li.news_tab a, div#disc_tab li.disc_tab a { /* settings for selected tab link */
+background-color: #fff; /* set selected tab background color as desired */
+color: #000; /* set selected tab link color as desired */
+position: relative;
+top: 1px;
+padding-top: 4px; /* must change with respect to padding (X) above and below */
+}
+ 
+ul#tabnav li a { /* settings for all tab links */
+padding: 3px 8px; /* set padding (tab size) as desired; FIRST number must change with respect to padding-top (X) above */
+border: 1px solid #6c6; /* set border COLOR as desired; usually matches border color specified in #tabnav */
+background-color:#71F25A; /* set unselected tab background color as desired */
+color: #000; /* set unselected tab link color as desired */
+margin-right: 4px; /* set additional spacing between tabs as desired */
+text-decoration: none;
+border-bottom: none;
+font-weight: bold;
+font-size: 1.5em;
+}
+ 
+ul#tabnav a:hover { /* settings for hover effect */
+background: #fff; /* set desired hover color */
+}
+ 
+/* end css tabs */

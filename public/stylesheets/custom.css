@@ -1,0 +1,281 @@
+/* Show pages */
+
+div.articles {
+	float: right;
+}
+
+div#brewery_beer_list {
+	border-top-width: 2px;
+	border-top-style: solid;
+	border-top-color: #D3D6D2;
+	padding-top: 16px;
+	margin-top: 16px;
+}
+#brewery_beer_list ul {
+	list-style: none;
+	padding-left: 8px;
+}
+
+#brewery_beer_list h3 {
+	margin-bottom: .2em;
+}
+
+div#show_container {
+	float:left;
+	width: 430px;
+	border: 2px solid #D3D6D2;
+	padding-right: 20px;
+}
+
+div#show_info {
+	padding-left: 10px;
+}
+
+div#show_container div#show_header {
+	background: #eee;
+	width: 440px;
+	padding-left: 10px;
+	height: 40px;
+	border-bottom: 2px solid #D3D6D2;
+	margin-bottom: 1em;
+}
+
+div#show_header h2 a {
+	color: #000;
+	text-decoration: none;
+}
+
+a.edit_link {
+	float: right;
+}
+a.add_button_small {
+	display: block;
+	font-weight: bold;
+	font-size: 120%;
+	color: #000;
+	margin-left: auto;
+	margin-right: auto;
+	float: right;
+	background: #71F25A;
+	padding: 2px 8px;
+	text-decoration: none;
+	border: 1px solid #6c6;
+}
+
+a.add_button_small:hover {
+	background: #fff;
+}
+
+/* Index pages */
+a.delete_link {
+	font-size: .5em;
+	float: right;
+}
+
+.index_item {
+	font-size: 150%;
+	list-style: none;
+	margin-bottom: 10px;
+}
+
+.short_address {
+	font-size: .8em;
+}
+
+div.index_list {
+	float: left;
+}
+
+a.add_button {
+	display: block;
+	font-size: 150%;
+	font-weight: bold;
+	color: #000;
+	margin-left: auto;
+	margin-right: 150px;
+	float: right;
+	background: #71F25A;
+	padding: 8px;
+	text-decoration: none;
+	border: 1px solid #6c6;
+}
+
+a.add_button:hover {
+	background: #fff;
+}
+
+/* Common css */
+
+a.external {
+	background: url(/images/external.png) center right no-repeat;
+	padding-right: 13px;
+}
+
+#container {
+  /*margin-top: 60px;*/
+  margin: 0 auto;
+  width: 900px;
+  text-align: left;
+}
+
+#content {
+	margin-top: 40px;
+}
+
+body {
+  text-align: center;
+  background: #FFF;
+}
+
+header {
+  padding-top: 10px;
+  /*background: #F0EAD3; */
+}
+
+header img {
+  
+}
+
+/* Navigation */
+
+nav {
+/*  background-color: #FCFCFC;*/
+  float: right;
+  padding: 0 0 .7em;
+  white-space: nowrap;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 0.2em 0;
+  font-size: 1.5em;
+}
+
+nav ul li a {
+  padding: 0 5px;
+}
+
+nav ul li a:visited {
+  color: #09c;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  text-align: center;
+  margin-top: 10px;
+  width: 710px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer nav {
+  float: none;
+}
+
+.round {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* Forms */
+form {
+	margin-left: 200px;
+}
+
+h1.form {
+	margin-left: 150px;
+}
+div#form_left {
+	float:left;
+	margin-left: 100px;
+}
+
+div#form_right {
+	float: right;
+	margin-right: 100px;
+}
+
+div.field {
+	margin-bottom: 5px;
+}
+
+div.field select {
+	margin-top: 4px;
+	width: 240px;
+	height: 24px;
+	font-size: 1.5em;
+	background: #eee;
+	border-width: 1px;
+	border-color: #999;
+}
+
+div.field input[type="text"] {
+	margin-top: 4px;
+	width: 240px;
+	height: 24px;
+	font-size: 1.5em;
+	background: #eee;
+	border-width: 1px;
+	border-color: #999;
+}
+
+div.field textarea {
+	margin-top: 4px;
+	height: 80px;
+	width: 380px;
+	font-size:1.5em;
+	background: #eee;
+	border-width: 1px;
+	border-color: #999;
+}
+
+/* Home */
+#top_home {
+	height: 180px;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: #D3D6D2;
+}
+	
+.home_box {
+	width: 350px;
+	height: 100px;
+	padding: 20px;
+}
+
+#search_home {
+	background: #71F25A; /*#F5C731;*/
+	text-align: center;
+	float: right
+}
+#search_home h1 {
+	font-weight: bold;
+}
+
+#info_home {
+	font-size: 1.5em;
+	float: left
+}
+
+#new_beers {
+	padding-top: 40px;
+
+	clear: left;
+}
+
+.debug_dump {
+	clear:left;
+	text-align: center;
+}
+
+
