@@ -6,5 +6,5 @@ Beermee::Application.routes.draw do
 
   resources :breweries
 
-  root :to => "breweries#index"
+  root :to => "pages#home"
 end
