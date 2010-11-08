@@ -1,6 +1,6 @@
 <li class="index_item" >
   <%= link_to beer.name, beer %>
+  <span class="beer_brewery"><%= beer.brewery.name %></span>
   <%= link_to "delete", beer, :method => :delete, :confirm => "Are you sure?",
                                  :title => "Delete #{beer.name}", :class => "delete_link" %>
-  <div class="beer_brewery"><%= beer.brewery.name %></div>
 </li>
