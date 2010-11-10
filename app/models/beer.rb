@@ -17,8 +17,8 @@
 #
 
 class Beer < ActiveRecord::Base
-  attr_accessible :name, :brewery_id, :style_id, :description, :abv, :ibu, :website,
-                  :image
+  attr_accessible :name, :style_id, :description, :abv, :ibu, :website,
+                  :image, :brewery_name
 
   has_attached_file :image, 
                     :styles => { :medium => "300x300>", :thumb => "60x80#" }
@@ -34,10 +34,17 @@ class Beer < ActiveRecord::Base
   validates :ibu,         :numericality => { :greater_than_or_equal_to => 0,
                                              :less_than_or_equal_to    => 200,
                                              :allow_nil => true }
-  validates :brewery_id,  :presence => true
   validates :style_id,    :presence => true
   validates :website,     :format => { :with => /^(#{URI::regexp(%w(http https))})$/,
                                        :allow_blank => true }
 
 
+
+  def brewery_name
+    brewery.name if brewery
+  end
+
+  def brewery_name=(name)
+    self.brewery = Brewery.find_by_name(name) unless name.blank?
+  end
 end

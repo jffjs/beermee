@@ -64,11 +64,6 @@ describe Beer do
       invalid_ibu.should_not be_valid
     end
 
-    it "should require a brewery id" do
-      no_brewery_beer = Beer.new(@attr.merge(:brewery_id => nil))
-      no_brewery_beer.should_not be_valid
-    end
-
     it "should require a style id" do
       no_style_beer = Beer.new(@attr.merge(:style_id => nil))
       no_style_beer.should_not be_valid
@@ -109,6 +104,21 @@ describe Beer do
     it "should belong to the right style" do
       @beer.style_id.should == @style.id
       @beer.style.should == @style
+    end
+  end
+
+  describe "brewery_name attribute" do
+    
+    before(:each) do
+      @beer = Beer.new(@attr.merge(:brewery_name => @brewery.name))
+    end
+
+    it "should create the correct association when passed an existing name" do
+      @beer.brewery.should == @brewery
+    end
+
+    it "should return the associated brewery's name" do
+      @beer.brewery_name.should == @brewery.name
     end
   end
 end

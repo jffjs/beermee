@@ -55,7 +55,7 @@ describe BeersController do
 
     it "should have a brewery autocomplete field" do
       get :new
-      response.should have_selector("input[data-autocomplete='/breweries/autocomplete_brewery_name']")
+      response.should have_selector("input[name='beer[brewery_name]'][type='text']")
     end
 
     it "should have a description text area" do
@@ -81,7 +81,7 @@ describe BeersController do
 
       it "should prefill the brewery autocomplete field with name" do
         get :new, :brewery_id => @brewery.id
-        response.should have_selector("input[data-autocomplete='/breweries/autocomplete_brewery_name']
+        response.should have_selector("input[name='beer[brewery_name]'][type='text']
                                         [value='#{@brewery.name}']")
       end
 
@@ -186,7 +186,7 @@ describe BeersController do
 
     it "should have a brewery autocomplete field" do
       get :edit, :id => @beer
-      response.should have_selector("input[data-autocomplete='/breweries/autocomplete_brewery_name']")
+      response.should have_selector("input[name='beer[brewery_name]'][type='text']")
     end
 
     it "should have a description text area" do

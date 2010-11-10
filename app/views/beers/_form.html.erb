@@ -12,11 +12,11 @@
                                    :include_blank => true) %>
   </div>
   <div class="field">
-    <%= f.label :brewery_id %><br />
-    <% brewery_name = @beer.brewery.name unless @beer.brewery.nil? %>
-    <%= autocomplete_field :brewery, :name, autocomplete_brewery_name_breweries_path, 
-          :id_element => "#beer_brewery_id", :value => brewery_name %>
-    <%= f.hidden_field :brewery_id %>
+    <%= f.label :brewery_name, "Brewery" %><br />
+    <%= text_field_with_auto_complete :beer, :brewery_name, { :size => 15 },
+                                      { :url => breweries_path(:js), 
+                                        :method => :get, 
+                                        :param_name => 'search' } %>
   </div>
   <div class="field">
     <%= f.label :description %><br />

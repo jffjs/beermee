@@ -3,10 +3,16 @@ class BreweriesController < ApplicationController
 
   # GET /breweries
   def index
-    @breweries = Brewery.paginate(:page => params[:page])
+    if request.format.js?
+      @breweries = Brewery.find(:all, 
+                              :conditions => ['name LIKE ?', "%#{params[:search]}%"])
+    elsif request.format.html?
+      @breweries = Brewery.paginate(:page => params[:page])
+    end
 
     respond_to do |format|
       format.html # index.html.erb
+      format.js   # index.js.erb
     end
   end
 

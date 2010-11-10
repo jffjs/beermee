@@ -7,7 +7,9 @@
     <%= link_to "Official Website", @beer.website, 
                 :class => "external" unless @beer.website.blank? %>
     <br />
-    Brewed by: <%= link_to @beer.brewery.name, brewery_path(@beer.brewery) %>
+    <% unless @beer.brewery.nil? %>
+      Brewed by: <%= link_to @beer.brewery.name, brewery_path(@beer.brewery) %>
+    <% end %>
     <br />
     <%= @beer.description %>
     <br />
