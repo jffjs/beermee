@@ -20,9 +20,11 @@ class Brewery < ActiveRecord::Base
   
   USA_ID = 214
 
-  attr_accessible :name, :city, :country_id, :state_id, :address, :zipcode, :info, :website
+  attr_accessible :name, :city, :country_id, :state_id, :address, :zipcode, 
+                  :info, :website, :image
 
   has_many    :beers
+  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "60x80#" }
   belongs_to  :country
   belongs_to  :state
 

@@ -17,8 +17,11 @@
 #
 
 class Beer < ActiveRecord::Base
-  attr_accessible :name, :brewery_id, :style_id, :description, :abv, :ibu, :website
+  attr_accessible :name, :brewery_id, :style_id, :description, :abv, :ibu, :website,
+                  :image
 
+  has_attached_file :image, 
+                    :styles => { :medium => "300x300>", :thumb => "60x80#" }
   belongs_to :brewery
   belongs_to :style
 

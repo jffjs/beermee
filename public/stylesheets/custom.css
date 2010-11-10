@@ -67,22 +67,48 @@ a.add_button_small:hover {
 }
 
 /* Index pages */
-a.delete_link {
-	font-size: .5em;
-	float: right;
+div.thumb {
+	float: left;
+	margin-left: 0px;
+
 }
 
-.index_item {
-	font-size: 150%;
-	list-style: none;
-	padding: 5px;
+li.index_item {
+	display: block;
+	padding: 8px;
 	width: 500px;
+	height: 85px;
 	border-bottom: 2px solid #888;
 }
 
-.beer_brewery {
-	font-size: .8em;
+li.index_item h3 {
+	margin-left: 70px;
+	margin-bottom: 2px;
 }
+
+.index_item div.thumb img {
+	border: 1px solid #b2b2b2;
+}
+
+a.delete_link {
+	font-size: .8em;
+	float: right;
+}
+
+span.item_sub {
+	font-size: 1.2em;
+	margin-left: 20px;
+}
+
+span.item_sub a {
+	text-decoration: none;
+	color: #000;
+}
+
+span.item_sub a:hover {
+	text-decoration: underline;
+}
+
 .short_address {
 	font-size: .8em;
 }
