@@ -25,14 +25,13 @@ class Brewery < ActiveRecord::Base
 
   has_many    :beers
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "60x80#" }
+
   belongs_to  :country
   belongs_to  :state
 
   validates :name,        :presence   => true,
                           :uniqueness => true
-  validates :city,        :presence   => true
-  validates :country_id,  :presence   => true
-  validates :state_id,    :presence   => { :if => :in_us? }
+  validates :city,        :length => { :maximum => 50 }
   validates :info,        :length => { :maximum => 500 }
   validates :address,     :length => { :maximum => 80 }
   validates :zipcode,     :length => { :maximum => 10 }
@@ -40,6 +39,7 @@ class Brewery < ActiveRecord::Base
                                        :allow_blank => true }
   
   def in_us?
-    country_id == USA_ID
+    self.country == Country.find_by_iso("US") unless country.nil?
   end
+
 end

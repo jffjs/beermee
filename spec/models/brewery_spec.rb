@@ -32,27 +32,6 @@ describe Brewery do
       bad_url.should_not be_valid
     end
 
-    it "should require a country" do
-      no_country_brewery = Brewery.new(@attr.merge(:country_id => nil))
-      no_country_brewery.should_not be_valid
-    end
-
-    it "should require state if in US" do
-      no_state_brewery = Brewery.new(@attr.merge(:state_id => nil, :country_id => 214))
-      no_state_brewery.should_not be_valid
-    end
-
-    it "should not require state if outside US" do
-      @not_us = Factory(:country, :iso => "CA", :name => "Canada", :iso3 => "CAN")
-      outside_us = Brewery.new(@attr.merge(:country_id => 23, :state => nil))
-      outside_us.should be_valid
-    end
-
-    it "should require a city" do
-      no_city_brewery = Brewery.new(@attr.merge(:city => ""))
-      no_city_brewery.should_not be_valid
-    end
-
     it "should reject if info is too long" do
       too_long_info = Brewery.new(@attr.merge(:info => "a" * 501))
       too_long_info.should_not be_valid
@@ -66,6 +45,11 @@ describe Brewery do
     it "should reject if zipcode is too long" do
       too_long_zip = Brewery.new(@attr.merge(:zipcode => "1" * 11))
       too_long_zip.should_not be_valid
+    end
+
+    it "should reject if city is too long" do
+      too_long_city = Brewery.new(@attr.merge(:city => "a" * 51))
+      too_long_city.should_not be_valid
     end
   end
 
