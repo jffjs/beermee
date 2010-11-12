@@ -7,14 +7,6 @@
     <%= link_to "Official Website", @brewery.website, 
                 :class => "external" unless @brewery.website.blank? %>
     <div class="full_address">
-      <%= @brewery.address %><br />
-      <%= @brewery.city %>,
-      <% if @brewery.in_us? %>
-        <%= @brewery.state.name %>
-      <% else %>
-        <%= @brewery.country.name %>
-      <% end %>
-      <%= @brewery.zipcode %><br />
     </div>
     <br />
     <%= @brewery.info %>
