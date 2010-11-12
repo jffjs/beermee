@@ -6,17 +6,12 @@
   </div>
   <div class="field">
     <%= f.label :style_id %><br />
-    <% styles = Style.find(:all).sort! { |a,b| a.name.downcase <=> b.name.downcase };
-       styles_array = styles.collect { |c| [c.name, c.id] } %>
-    <%= select("beer", "style_id", styles_array, 
+    <%= select("beer", "style_id", beer_styles, 
                                    :include_blank => true) %>
   </div>
   <div class="field">
     <%= f.label :brewery_name, "Brewery" %><br />
-    <%= text_field_with_auto_complete :beer, :brewery_name, { :size => 15 },
-                                      { :url => breweries_path(:js), 
-                                        :method => :get, 
-                                        :param_name => 'search' } %>
+    <%= f.autocomplete_field :brewery_name, autocomplete_brewery_name_beers_path %>
   </div>
   <div class="field">
     <%= f.label :description %><br />

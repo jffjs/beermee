@@ -39,7 +39,7 @@ class Beer < ActiveRecord::Base
                                        :allow_blank => true }
 
 
-
+# Virtual attributes
   def brewery_name
     brewery.name if brewery
   end
@@ -47,4 +47,5 @@ class Beer < ActiveRecord::Base
   def brewery_name=(name)
     self.brewery = Brewery.find_by_name(name) unless name.blank?
   end
+
 end

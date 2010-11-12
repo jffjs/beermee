@@ -1,5 +1,4 @@
 class BreweriesController < ApplicationController
-  autocomplete :brewery, :name
 
   # GET /breweries
   def index

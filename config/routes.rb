@@ -1,8 +1,7 @@
 Beermee::Application.routes.draw do
-  resources :beers
-  resources :breweries do
+  resources :beers do
     get :autocomplete_brewery_name, :on => :collection
-  end
+  end 
 
   resources :breweries
 

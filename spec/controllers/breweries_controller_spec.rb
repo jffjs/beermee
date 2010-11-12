@@ -287,15 +287,4 @@ describe BreweriesController do
     end
   end
 
-  describe "GET autocomplete_brewery_name" do
-    
-    before(:each) do
-      @brewery = Factory(:brewery)
-    end
-
-    it "should be successful" do
-      get :autocomplete_brewery_name, :term => "Sample"
-      response.should be_success
-    end
-  end
 end
