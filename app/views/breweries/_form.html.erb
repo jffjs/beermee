@@ -15,8 +15,7 @@
   <div class="field">
     <%= f.label :country %><br />
     <%= select("brewery", "country_id", Country.all.collect {|c| [c.name, c.id] },
-        { :include_blank => true}, 
-        { :onchange => "if (this.value == '214') { $('state').show(); } else {$('state').hide();}"}) %>
+                          { :include_blank => true}) %>
   </div>
   <div class="field" id="state">
     <%= f.label :state %><br />
