@@ -31,12 +31,7 @@ ActiveRecord::Schema.define(:version => 20101109234349) do
 
   create_table "breweries", :force => true do |t|
     t.string   "name"
-    t.string   "city"
-    t.integer  "country_id"
-    t.integer  "state_id"
-    t.string   "zipcode"
     t.text     "info"
-    t.string   "address"
     t.string   "website"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -44,6 +39,11 @@ ActiveRecord::Schema.define(:version => 20101109234349) do
     t.string   "image_content_type"
     t.string   "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "address"
+    t.string   "city"
+    t.string   "zipcode"
+    t.integer  "state_id"
+    t.integer  "country_id"
   end
 
   create_table "countries", :force => true do |t|
