@@ -8,28 +8,30 @@
     <%= f.label :website %><br />
     <%= f.text_field :website %>
   </div>
-  <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :country %><br />
-    <%= select("brewery", "country_id", Country.all.collect {|c| [c.name, c.id] },
-                          { :include_blank => true}) %>
-  </div>
-  <div class="field" id="state">
-    <%= f.label :state %><br />
-    <%= select("brewery", "state_id", State.all.collect {|s| [s.name, s.id] },
-                                      :include_blank => true) %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :zipcode, "Zip Code" %><br />
-    <%= f.text_field :zipcode %>
-  </div>
+  <%= f.fields_for :address do |builder| %>
+    <div class="field">
+      <%= builder.label :city %><br />
+      <%= builder.text_field :city %>
+    </div>
+    <div class="field">
+      <%= builder.label :country %><br />
+      <%= builder.select  :country_id, Country.all.collect {|c| [c.name, c.id] }, 
+                          :include_blank => true %>
+    </div>
+    <div class="field" id="state">
+      <%= builder.label :state %><br />
+      <%= builder.select  :state_id, State.all.collect {|s| [s.name, s.id] }, 
+                          :include_blank => true %>
+    </div>
+    <div class="field">
+      <%= builder.label :street, "Address" %><br />
+      <%= builder.text_field :street %>
+    </div>
+    <div class="field">
+      <%= builder.label :postal_code, "Zip Code" %><br />
+      <%= builder.text_field :postal_code %>
+    </div>
+  <% end %>
   <div class="field">
     <%= f.label :info, "Additional Information" %><br />
     <%= f.text_area :info %>
