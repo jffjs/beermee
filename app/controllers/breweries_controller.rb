@@ -18,7 +18,7 @@ class BreweriesController < ApplicationController
   # GET /breweries/new
   def new
     @brewery = Brewery.new
-    @brewery.build_address
+    @brewery.build_address.country = Country.find_by_iso3("USA")
 
     respond_to do |format|
       format.html # new.html.erb
