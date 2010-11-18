@@ -11,5 +11,9 @@
 #
 
 class State < ActiveRecord::Base
-  has_many :breweries
+  has_many :addresses
+  has_many :breweries, :through => :addresses
+
+  validates :name,  :uniqueness => true
 end
+

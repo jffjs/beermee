@@ -55,27 +55,27 @@ describe BreweriesController do
 
     it "should have a city field" do
       get :new
-      response.should have_selector("input[name='brewery[city]'][type='text']")
+      response.should have_selector("input[name='brewery[address_attributes][city]'][type='text']")
     end
 
     it "should have a country select" do
       get :new
-      response.should have_selector("select[name='brewery[country_id]']")
+      response.should have_selector("select[name='brewery[address_attributes][country_id]']")
     end
 
     it "should have a state select" do
       get :new
-      response.should have_selector("select[name='brewery[state_id]']")
+      response.should have_selector("select[name='brewery[address_attributes][state_id]']")
     end
 
     it "should have an address field" do
       get :new
-      response.should have_selector("input[name='brewery[address]'][type='text']")
+      response.should have_selector("input[name='brewery[address_attributes][street]'][type='text']")
     end
 
     it "should have a zipcode field" do
       get :new
-      response.should have_selector("input[name='brewery[zipcode]'][type='text']")
+      response.should have_selector("input[name='brewery[address_attributes][postal_code]'][type='text']")
     end
 
     it "should have an info text area" do
@@ -160,7 +160,8 @@ describe BreweriesController do
   describe "GET edit" do
     
     before(:each) do
-      @brewery = Factory(:brewery)
+      @address = Factory(:address, :brewery => nil)
+      @brewery = Factory(:brewery, :address => @address)
     end
 
     it "should be successful" do
@@ -180,27 +181,27 @@ describe BreweriesController do
 
     it "should have a city field" do
       get :edit, :id => @brewery
-      response.should have_selector("input[name='brewery[city]'][type='text']")
+      response.should have_selector("input[name='brewery[address_attributes][city]'][type='text']")
     end
 
     it "should have a country select" do
       get :edit, :id => @brewery
-      response.should have_selector("select[name='brewery[country_id]']")
+      response.should have_selector("select[name='brewery[address_attributes][country_id]']")
     end
 
     it "should have a state select" do
       get :edit, :id => @brewery
-      response.should have_selector("select[name='brewery[state_id]']")
+      response.should have_selector("select[name='brewery[address_attributes][state_id]']")
     end
 
     it "should have an address field" do
       get :edit, :id => @brewery
-      response.should have_selector("input[name='brewery[address]'][type='text']")
+      response.should have_selector("input[name='brewery[address_attributes][street]'][type='text']")
     end
 
     it "should have a zipcode field" do
       get :edit, :id => @brewery
-      response.should have_selector("input[name='brewery[zipcode]'][type='text']")
+      response.should have_selector("input[name='brewery[address_attributes][postal_code]'][type='text']")
     end
 
    it "should have an info text area" do
@@ -218,11 +219,9 @@ describe BreweriesController do
     describe "success" do
       
       before(:each) do
+        @address = Factory(:address, :brewery => nil)
         @attr = { :name       => "New Name", 
-                  :city       => "new city",
-                  :country_id => 15,
-                  :state_id   => nil,
-                  :address    => "new address",
+                  :address    =>  @address,
                   :zipcode    => "09876",
                   :info       => "new info" }
       end
@@ -232,11 +231,8 @@ describe BreweriesController do
         brewery = assigns(:brewery)
         @brewery.reload
         @brewery.name.should == brewery.name
-        @brewery.city.should == brewery.city
-        @brewery.country_id.should == brewery.country_id
-        @brewery.address.should == brewery.address
-        @brewery.zipcode.should == brewery.zipcode
         @brewery.info.should == brewery.info
+        @brewery.address.should == brewery.address
       end
 
       it "should redirect to the brewery show page" do
@@ -254,11 +250,7 @@ describe BreweriesController do
 
       before(:each) do
         @attr = { :name       => "", 
-                  :city       => "",
-                  :country_id => nil,
-                  :state_id   => nil,
                   :address    => "",
-                  :zipcode    => "",
                   :info       => "" }
       end
 

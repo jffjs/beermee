@@ -14,12 +14,17 @@ end
 
 Factory.define(:brewery) do |brewery|
   brewery.name        "Sample brewery"
-  brewery.association :country
-  brewery.association :state
-  brewery.city        "Kalamazoo"
-  brewery.address     "123 Main St."
-  brewery.zipcode     "12345"
   brewery.info        "Some brewery info..."
+  brewery.website     "http://www.beer.com"
+end
+
+Factory.define(:address) do |address|
+  address.street      "123 Main st."
+  address.city        "Beerville"
+  address.postal_code "12345"
+  address.association :brewery
+  address.association :state
+  address.association :country
 end
 
 Factory.define(:state) do |state|

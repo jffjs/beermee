@@ -3,14 +3,8 @@ require 'spec_helper'
 describe Brewery do
 
   before(:each) do 
-    @state = Factory(:state)
-    @country = Factory(:country)
     @attr = { :name       => "Example Brewery",
-              :address    => "123 Sample Dr.",
-              :city       => "Beerville",
-              :country_id => @country.id,
-              :state_id   => @state.id,
-              :zipcode    => "12345",
+              :website    => "http://www.beer.com",
               :info       => "A great brewery..." }
   end
 
@@ -36,52 +30,21 @@ describe Brewery do
       too_long_info = Brewery.new(@attr.merge(:info => "a" * 501))
       too_long_info.should_not be_valid
     end
-
-    it "should reject if address is too long" do
-      too_long_address = Brewery.new(@attr.merge(:address => "a" * 81))
-      too_long_address.should_not be_valid
-    end
-
-    it "should reject if zipcode is too long" do
-      too_long_zip = Brewery.new(@attr.merge(:zipcode => "1" * 11))
-      too_long_zip.should_not be_valid
-    end
-
-    it "should reject if city is too long" do
-      too_long_city = Brewery.new(@attr.merge(:city => "a" * 51))
-      too_long_city.should_not be_valid
-    end
   end
 
-  describe "state assocation" do
+  describe "address association" do
     
     before(:each) do
-      @brewery = @state.breweries.create(@attr)
+      @brewery = Brewery.new(@attr)
+      @address = Factory(:address, :brewery => @brewery)
     end
 
-    it "should have a state attribute" do
-      @brewery.should respond_to(:state)
+    it "should have an address attribute" do
+      @brewery.should respond_to(:address)
     end
 
-    it "should reference the correct state" do
-      @brewery.state_id.should == @state.id
-      @brewery.state.should == @state
-    end
-  end
-
-  describe "country association" do
-
-    before(:each) do
-      @brewery = @country.breweries.create(@attr)
-    end
-
-    it "should have a country attribute" do
-      @brewery.should respond_to(:country)
-    end
-
-    it "should reference the correct country" do
-      @brewery.country_id.should == @country.id
-      @brewery.country.should == @country
+    it "should have the correct address" do
+      @brewery.address.should == @address
     end
   end
 end

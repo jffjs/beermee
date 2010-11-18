@@ -1,19 +1,23 @@
 # == Schema Information
-# Schema version: 20101106204629
+# Schema version: 20101116221815
 #
 # Table name: beers
 #
-#  id               :integer         not null, primary key
-#  name             :string(255)
-#  brewery_id       :integer
-#  description      :text
-#  abv              :decimal(, )
-#  ibu              :decimal(, )
-#  original_gravity :decimal(, )
-#  style_id         :integer
-#  website          :string(255)
-#  created_at       :datetime
-#  updated_at       :datetime
+#  id                 :integer         not null, primary key
+#  name               :string(255)
+#  brewery_id         :integer
+#  description        :text
+#  abv                :decimal(, )
+#  ibu                :decimal(, )
+#  original_gravity   :decimal(, )
+#  style_id           :integer
+#  website            :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  image_file_name    :string(255)
+#  image_content_type :string(255)
+#  image_file_size    :integer
+#  image_updated_at   :datetime
 #
 
 class Beer < ActiveRecord::Base
