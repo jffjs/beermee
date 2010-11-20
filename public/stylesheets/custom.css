@@ -1,43 +1,68 @@
-/* Show pages */
+/*** Show pages ***/
+h1#showName {
+	float: left;
+}
 
-div.articles {
+div#showImage {
+	width: 300px;
+	height: 300px;
+	float: right;
+	text-align: right;
+}
+
+div#showImage img {
+	border: 1px solid #b2b2b2;
+}
+
+a.edit_link {
 	float: right;
 }
 
-div#brewery_beer_list {
-	border-top-width: 2px;
-	border-top-style: solid;
-	border-top-color: #D3D6D2;
-	padding-top: 16px;
-	margin-top: 16px;
-}
-#brewery_beer_list ul {
-	list-style: none;
-	padding-left: 8px;
+div#description {
+	font-size: 1em;
+	min-height: 200px;
 }
 
-#brewery_beer_list h3 {
+div#infoSection {
+	clear: left;
+	margin-bottom: 16px;
+}
+
+div#infoSection p {
+	margin: 0px 0px .2em;
+}
+div#infoSection p strong {
+	margin: 0px .6em 0px 0px;
+}
+
+/* Brewery show */
+div#breweryBeerList {
+
+}
+#breweryBeerList ul {
+	list-style: none;
+	padding-left: 8px;
+	font-size: 1.2em;
+}
+
+#breweryBeerList ul li {
+	display: inline-block;
+	width: 100px;
+	text-align: center;
+	margin-bottom: 8px;
+}
+
+#breweryBeerList h3 {
 	margin-bottom: .2em;
 }
 
-div#show_container {
-	float:left;
-	width: 430px;
-	border: 2px solid #D3D6D2;
-	padding-right: 20px;
+#breweryBeerList a.add_link {
+	float: right;
 }
 
-div#show_info {
-	padding-left: 10px;
-}
-
-div#show_container div#show_header {
-	background: #eee;
-	width: 440px;
-	padding-left: 10px;
-	height: 40px;
-	border-bottom: 2px solid #D3D6D2;
-	margin-bottom: 1em;
+div.thumb {
+	text-align: center;
+	width: 100px;
 }
 
 div#show_header h2 a {
@@ -45,32 +70,16 @@ div#show_header h2 a {
 	text-decoration: none;
 }
 
-a.edit_link {
-	float: right;
-}
-a.add_button_small {
-	display: block;
-	font-weight: bold;
-	font-size: 120%;
-	color: #000;
-	margin-left: auto;
-	margin-right: auto;
-	float: right;
-	background: #71F25A;
-	padding: 2px 8px;
-	text-decoration: none;
-	border: 1px solid #6c6;
-}
 
-a.add_button_small:hover {
-	background: #fff;
-}
 
-/* Index pages */
-div.thumb {
+/*** Index pages ***/
+span.thumb {
 	float: left;
 	margin-left: 0px;
+}
 
+img.thumb {
+	border: 1px solid #b2b2b2;
 }
 
 li.index_item {
@@ -84,10 +93,6 @@ li.index_item {
 li.index_item h3 {
 	margin-left: 70px;
 	margin-bottom: 2px;
-}
-
-.index_item div.thumb img {
-	border: 1px solid #b2b2b2;
 }
 
 a.delete_link {
@@ -143,7 +148,23 @@ a.add_button:hover {
 	background: #fff;
 }
 
-/* Common css */
+/*** Common ***/
+
+aside {
+	float: right;
+	width: 240px;
+	min-height: 400px;
+	border-left: 2px solid #888;
+	padding-left: 20px;
+}
+
+div#main {
+	border-left: 2px solid #888;
+	min-height: 400px;
+	width: 700px;
+	float: left;
+	padding-left: 40px;
+}
 
 a.external {
 	background: url(/images/external.png) center right no-repeat;
@@ -153,16 +174,10 @@ a.external {
 #container {
 	height: 100%;
 	min-height: 100%;
-	width: 1000px;
+	width: 1200px;
 	position: relative;
-}
-
-#body {
-	border-left: 2px solid #888;
-	min-height: 400px;
-	width: 700px;
-	float: left;
-	padding: 0px 40px;
+	overflow: hidden;
+	margin: auto;
 }
 
 body {
@@ -176,7 +191,7 @@ header {
 	min-width: 960px;
   background: #2b2b2b;
 	border-bottom: 3px solid #888;
-	margin-bottom: 60px;
+	margin-bottom: 100px;
 }
 
 header img {
@@ -202,11 +217,11 @@ footer {
 	border-top: 2px solid #888;
 }
 
-/* Navigation */
+/*** Navigation ***/
 
 #sidenav {
 	overflow: hidden;
-	width: 200px;
+	width: 160px;
 	text-align: right;
 	float: left;
 }
@@ -233,6 +248,7 @@ footer {
 	margin-left: 40%;
 }
 
+/*** Header ***/
 header nav {
 /*  background-color: #FCFCFC;*/
 	margin-top: 18px;
@@ -265,6 +281,7 @@ header nav ul li a:hover {
   text-decoration: underline;
 }
 
+/*** Footer ***/
 footer nav {
   margin-top: 32px;
   padding: 2em 0 .7em;
@@ -300,22 +317,21 @@ footer nav ul li p {
   border-radius: 5px;
 }
 
-/* Forms */
+/*** Forms ***/
 form {
-	margin-left: 200px;
+	margin-left: 50px;
+	width: 500px;
 }
 
 h1.form {
-	margin-left: 150px;
-}
-div#form_left {
-	float:left;
-	margin-left: 100px;
+	margin-left: 0px;
 }
 
-div#form_right {
-	float: right;
-	margin-right: 100px;
+form label {
+	float: left;
+	vertical-align: top;
+	width: 20%;
+	font-size: 1em;
 }
 
 div.field {
@@ -324,7 +340,7 @@ div.field {
 
 div.field select {
 	margin-top: 4px;
-	width: 240px;
+	width: 280px;
 	height: 24px;
 	font-size: 1.5em;
 	background: #eee;
@@ -334,7 +350,7 @@ div.field select {
 
 div.field input[type="text"] {
 	margin-top: 4px;
-	width: 240px;
+	width: 280px;
 	height: 24px;
 	font-size: 1.5em;
 	background: #eee;
@@ -344,13 +360,16 @@ div.field input[type="text"] {
 
 div.field textarea {
 	margin-top: 4px;
-	height: 80px;
-	width: 380px;
-	font-size:1.5em;
+	height: 100px;
+	width: 280px;
+	font-size:1.2em;
 	background: #eee;
 	border-width: 1px;
 	border-color: #999;
+	font-family: Arial;
 }
+
+
 
 /* Home */
 #top_home {

@@ -1,15 +1,19 @@
-<div id="show_container" >
-  <div id="show_header">
-    <%= link_to "Edit", edit_brewery_path, :class => "edit_link" %>
-    <h2><%= @brewery.name %></h2>
+<div id="main" >
+  <h1 id="showName"><%= @brewery.name %></h1>
+  <div id="showImage">
+    <%= image_tag @brewery.image.url, :alt => @brewery.name %>
   </div>
-  <div id="show_info" >
-    <%= link_to "Official Website", @brewery.website, 
-                :class => "external" unless @brewery.website.blank? %>
-    <div class="full_address">
-    </div>
-    <br />
+  <%= link_to "Edit", edit_brewery_path, :class => "edit_link" %>
+  <div id="infoSection">
+    <% unless @brewery.website.blank? %>
+      <strong>Website:</strong> <%= link_to @brewery.website, @brewery.website %>
+    <% end %>
+  </div>
+  <div id="description">
     <%= @brewery.info %>
-    <%= render 'beer_list' %>
   </div>
 </div>
+<aside>
+  <%= render 'beer_list' %>
+</aside>
+

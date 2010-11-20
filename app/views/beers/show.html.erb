@@ -1,25 +1,24 @@
-<div id="show_container" >
-  <div id="show_header">
-    <%= link_to "Edit", edit_beer_path, :class => "edit_link" %>
-    <h2><%= @beer.name %></h2>
+<div id="main" >    
+  <h1 id="showName"><%= @beer.name %></h1>
+  <div id="showImage">
+    <%= image_tag @beer.image.url, :alt => @beer.name %>
   </div>
-  <div id="show_info" >
-    <%= link_to "Official Website", @beer.website, 
-                :class => "external" unless @beer.website.blank? %>
-    <br />
-    <% unless @beer.brewery.nil? %>
-      Brewed by: <%= link_to @beer.brewery.name, brewery_path(@beer.brewery) %>
+  <%= link_to "Edit", edit_beer_path, :class => "edit_link" %>
+  <div id="infoSection" >
+    <p>
+      <strong>Brewed by:</strong>
+      <%= link_to @beer.brewery.name, brewery_path(@beer.brewery) %>
+    </p>
+    <% unless @beer.abv.blank? %>
+      <p><strong>ABV:</strong> <%= @beer.abv %>%</p>
     <% end %>
-    <br />
+    <% unless @beer.ibu.blank? %>
+      <p><strong>IBU:</strong> <%= @beer.ibu %></p>
+    <% end %>
+  </div>
+  <div id="description">
     <%= @beer.description %>
-    <br />
-    <div id="beer_stats">
-      <% unless @beer.abv.blank? %>
-        <strong>ABV:</strong> <%= @beer.abv %><br />
-      <% end %>
-      <% unless @beer.ibu.blank? %>
-        <strong>IBU:</strong> <%= @beer.ibu %><br />
-      <% end %>
-    </div>
   </div>
 </div>
+<aside>
+</aside>

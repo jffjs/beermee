@@ -26,7 +26,7 @@ class Brewery < ActiveRecord::Base
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "60x80#" }
 
   validates :name,        :presence => true, :uniqueness => true
-  validates :info,        :length   => { :maximum => 500 }
+  validates :info,        :length   => { :maximum => 1000 }
   validates :website,     :format   => { :with => /^(#{URI::regexp(%w(http https))})$/,
                                        :allow_blank => true }
   

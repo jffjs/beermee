@@ -1,5 +1,5 @@
 <li class="index_item" >
-  <div class="thumb"><%= link_to thumbnail(beer) %></div>
+  <span class="thumb"><%= link_to thumbnail(beer) %></span>
   <h3><%= link_to beer.name, beer %></h3>
   <% unless beer.brewery.nil? %>
     <span class="item_sub"><%= link_to beer.brewery.name, beer.brewery %></span>

@@ -27,7 +27,7 @@ describe Brewery do
     end
 
     it "should reject if info is too long" do
-      too_long_info = Brewery.new(@attr.merge(:info => "a" * 501))
+      too_long_info = Brewery.new(@attr.merge(:info => "a" * 1001))
       too_long_info.should_not be_valid
     end
   end

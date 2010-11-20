@@ -153,7 +153,7 @@ describe BreweriesController do
 
     it "should include the brewery name" do
       get :show, :id => @brewery
-      response.should have_selector("h2", :content => @brewery.name)
+      response.should have_selector("h1", :content => @brewery.name)
     end
   end
 

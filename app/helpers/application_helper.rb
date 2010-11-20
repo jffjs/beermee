@@ -5,6 +5,7 @@ module ApplicationHelper
   end
 
   def thumbnail(item)
-    image_tag item.image.url(:thumb), :alt => item.name
+    image_tag item.image.url(:thumb), :alt => item.name, :class => "thumb"
   end
+
 end

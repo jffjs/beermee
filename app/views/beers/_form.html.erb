@@ -1,36 +1,36 @@
 <%= form_for @beer, :html => { :multipart => true }  do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :style_id %><br />
+    <%= f.label :style_id %>
     <%= select("beer", "style_id", beer_styles, 
                                    :include_blank => true) %>
   </div>
   <div class="field">
-    <%= f.label :brewery_name, "Brewery" %><br />
+    <%= f.label :brewery_name, "Brewery" %>
     <%= f.autocomplete_field :brewery_name, autocomplete_brewery_name_beers_path %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
+    <%= f.label :description %>
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :website %><br />
+    <%= f.label :website %>
     <%= f.text_field :website %>
   </div>
   <div class="field">
-    <%= f.label :abv, "ABV" %><br />
+    <%= f.label :abv, "ABV" %>
     <%= f.text_field :abv %>
   </div>
   <div class="field">
-    <%= f.label :ibu, "IBU" %><br />
+    <%= f.label :ibu, "IBU" %>
     <%= f.text_field :ibu %>
   </div>
   <div class="field">
-    <%= f.label :image %><br />
+    <%= f.label :image %>
     <%= f.file_field :image %>
   </div>
   <div class="actions">

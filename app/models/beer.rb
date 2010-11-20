@@ -25,7 +25,8 @@ class Beer < ActiveRecord::Base
                   :image, :brewery_name
 
   has_attached_file :image, 
-                    :styles => { :medium => "300x300>", :thumb => "60x80#" }
+                    :styles => { :medium => "300x300>", :thumb => "60x80#",
+                                 :small => "30x40#" }
   belongs_to :brewery
   belongs_to :style
 

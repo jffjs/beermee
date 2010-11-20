@@ -1,10 +1,13 @@
-<div id="brewery_beer_list">
-  <%= link_to "Add", new_beer_path(:brewery_id => @brewery.id), :class => "round add_button_small" %>
+<div id="breweryBeerList">
+  <%= link_to "+ Add", new_beer_path(:brewery_id => @brewery.id), :class => "add_link" %>
   <div>
-  <h3>Beers</h3> 
+  <h2>Beers</h2> 
   <ul>
   <% @brewery.beers.each do |beer| %>
-    <li><%= link_to beer.name, beer %></li>
+    <li>
+      <div class="thumb"><%= link_to thumbnail(beer), beer %></div>
+      <%= link_to beer.name, beer %>
+    </li>
   <% end %>
   </ul>
   </div>
