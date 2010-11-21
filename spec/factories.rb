@@ -46,3 +46,7 @@ end
 Factory.sequence :beer_name do |n|
   "Beer #{n}"
 end
+
+Factory.sequence :style_name do |n|
+  "Style #{n}"
+end

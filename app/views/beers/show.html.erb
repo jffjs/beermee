@@ -1,19 +1,22 @@
 <div id="main" >    
+  <h3 id="showHeadTop">
+    <%= link_to @beer.style.name, @beer.style, :class => "undecorated"%>
+  </h3>
   <h1 id="showName"><%= @beer.name %></h1>
   <div id="showImage">
-    <%= image_tag @beer.image.url, :alt => @beer.name %>
+    <%= image_tag @beer.image.url(:medium), :alt => @beer.name %>
   </div>
   <%= link_to "Edit", edit_beer_path, :class => "edit_link" %>
   <div id="infoSection" >
     <p>
-      <strong>Brewed by:</strong>
+      <span class="label"><strong>Brewed by:</strong></span>
       <%= link_to @beer.brewery.name, brewery_path(@beer.brewery) %>
     </p>
     <% unless @beer.abv.blank? %>
-      <p><strong>ABV:</strong> <%= @beer.abv %>%</p>
+      <p><span class="label"><strong>ABV:</strong></span> <%= @beer.abv %>%</p>
     <% end %>
     <% unless @beer.ibu.blank? %>
-      <p><strong>IBU:</strong> <%= @beer.ibu %></p>
+      <p><span class="label"><strong>IBUs:</strong></span> <%= @beer.ibu %></p>
     <% end %>
   </div>
   <div id="description">

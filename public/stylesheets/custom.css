@@ -3,6 +3,10 @@ h1#showName {
 	float: left;
 }
 
+div#main h3#showHeadTop {
+	margin-bottom: .4em;
+}
+
 div#showImage {
 	width: 300px;
 	height: 300px;
@@ -25,15 +29,22 @@ div#description {
 
 div#infoSection {
 	clear: left;
+	margin-left: 20px;
 	margin-bottom: 16px;
 }
 
 div#infoSection p {
 	margin: 0px 0px .2em;
 }
-div#infoSection p strong {
+
+div#infoSection p span.label {
 	margin: 0px .6em 0px 0px;
+	display: inline-block;
+	width: 80px;
+	text-align: right;
 }
+
+/* Beer show */
 
 /* Brewery show */
 div#breweryBeerList {
@@ -148,7 +159,20 @@ a.add_button:hover {
 	background: #fff;
 }
 
+ul#styles li {
+	list-style: none;
+}
+
 /*** Common ***/
+
+a.undecorated {
+	color: #000;
+	text-decoration: none;
+}
+
+a.undecorated:hover {
+	text-decoration: underline;
+}
 
 aside {
 	float: right;

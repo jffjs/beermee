@@ -1,2 +1,11 @@
-<h1>Styles#show</h1>
-<p>Find me in app/views/styles/show.html.erb</p>
+<div id="main">
+  <h2 id="showName">
+    <%= link_to "Beer Styles", styles_path, :class => "undecorated"%>
+    &gt; <%= @style.name %>
+  </h2>
+  <%= will_paginate @beers %>
+  <ul class="beers">
+    <%= render @beers %>
+  </ul>
+  <%= will_paginate @beers %>
+</div>
