@@ -1,7 +1,7 @@
 <div id="main" >
   <h1 id="showName"><%= @brewery.name %></h1>
   <div id="showImage">
-    <%= image_tag @brewery.image.url, :alt => @brewery.name %>
+    <%= image_tag @brewery.image.url(:medium), :alt => @brewery.name %>
   </div>
   <%= link_to "Edit", edit_brewery_path, :class => "edit_link" %>
   <div id="infoSection">
