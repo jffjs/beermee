@@ -11,7 +11,7 @@ describe Address do
               :postal_code => "12345",
               :state => @state,
               :country => @country,
-              :brewery => @brewery }
+              :addressable => @brewery }
   end
 
   it "should create a new address instance" do
@@ -55,11 +55,11 @@ describe Address do
     end
   
     it "should have a brewery attribute" do
-      @address.should respond_to(:brewery)
+      @address.should respond_to(:addressable)
     end
 
     it "should have the correct brewery" do
-      @address.brewery.should == @brewery
+      @address.addressable.should == @brewery
     end
   end
 end

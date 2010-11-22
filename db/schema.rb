@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101116223856) do
+ActiveRecord::Schema.define(:version => 20101122023229) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street"
@@ -20,7 +20,8 @@ ActiveRecord::Schema.define(:version => 20101116223856) do
     t.string   "postal_code"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "brewery_id"
+    t.integer  "addressable_id"
+    t.string   "addressable_type"
   end
 
   create_table "beers", :force => true do |t|
@@ -42,7 +43,7 @@ ActiveRecord::Schema.define(:version => 20101116223856) do
 
   create_table "breweries", :force => true do |t|
     t.string   "name"
-    t.text     "info"
+    t.text     "description"
     t.string   "website"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -50,11 +51,6 @@ ActiveRecord::Schema.define(:version => 20101116223856) do
     t.string   "image_content_type"
     t.string   "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "address"
-    t.string   "city"
-    t.string   "zipcode"
-    t.integer  "state_id"
-    t.integer  "country_id"
   end
 
   create_table "countries", :force => true do |t|
@@ -64,6 +60,19 @@ ActiveRecord::Schema.define(:version => 20101116223856) do
     t.integer  "numcode"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "places", :force => true do |t|
+    t.string   "name"
+    t.string   "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "description"
+    t.string   "website"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.string   "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "states", :force => true do |t|

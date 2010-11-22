@@ -14,7 +14,7 @@ end
 
 Factory.define(:brewery) do |brewery|
   brewery.name        "Sample brewery"
-  brewery.info        "Some brewery info..."
+  brewery.description "Some brewery info..."
   brewery.website     "http://www.beer.com"
 end
 
@@ -22,7 +22,6 @@ Factory.define(:address) do |address|
   address.street      "123 Main st."
   address.city        "Beerville"
   address.postal_code "12345"
-  address.association :brewery
   address.association :state
   address.association :country
 end

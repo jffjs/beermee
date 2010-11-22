@@ -11,8 +11,8 @@ describe State do
     
     before(:each) do
       @state = State.create!(@attr)
-      @a1 = Factory(:address, :state => @state, :brewery => nil, :country => nil)
-      @a2 = Factory(:address, :state => @state, :brewery => nil, :country => nil)
+      @a1 = Factory(:address, :state => @state, :country => nil)
+      @a2 = Factory(:address, :state => @state, :country => nil)
     end
 
     it "should have a addresses attribute" do
@@ -21,25 +21,6 @@ describe State do
 
     it "should have the right number of addresses" do
       @state.addresses.length.should == 2
-    end
-  end
-
-  describe "breweries association" do
-    
-    before(:each) do
-      @state = State.create!(@attr)
-      @b1 = Factory(:brewery)
-      @b2 = Factory(:brewery, :name => "Another")
-      @a1 = Factory(:address, :state => @state, :brewery => @b1, :country => nil)
-      @a2 = Factory(:address, :state => @state, :brewery => @b2, :country => nil)
-    end
-
-    it "should have a breweries attribute" do
-      @state.should respond_to(:breweries)
-    end
-
-    it "should have the right number of breweries" do
-      @state.breweries.length.should == 2
     end
   end
 

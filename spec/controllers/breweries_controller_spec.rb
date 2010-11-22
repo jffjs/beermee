@@ -78,9 +78,9 @@ describe BreweriesController do
       response.should have_selector("input[name='brewery[address_attributes][postal_code]'][type='text']")
     end
 
-    it "should have an info text area" do
+    it "should have an description text area" do
       get :new
-      response.should have_selector("textarea[name='brewery[info]']")
+      response.should have_selector("textarea[name='brewery[description]']")
     end
   end
 
@@ -89,13 +89,10 @@ describe BreweriesController do
     describe "success" do
       
       before(:each) do
+        @address = Factory(:address)
         @attr = { :name       => "Sample Brewery", 
-                  :city       => "Townsville",
-                  :country_id => 214,
-                  :state_id   => 15,
-                  :address    => "123 Main St.",
-                  :zipcode    => "12345",
-                  :info       => "Some sample info." }
+                  :address    => @address,
+                  :description => "Some sample info." }
       end
 
       it "should create a brewery" do
@@ -114,12 +111,8 @@ describe BreweriesController do
       
       before(:each) do
         @attr = { :name       => "", 
-                  :city       => "",
-                  :country_id => nil,
-                  :state_id   => nil,
-                  :address    => "",
-                  :zipcode    => "",
-                  :info       => "" }
+                  :address    => nil,
+                  :description => "" }
       end
 
       it "should not create a brewery" do
@@ -160,7 +153,7 @@ describe BreweriesController do
   describe "GET edit" do
     
     before(:each) do
-      @address = Factory(:address, :brewery => nil)
+      @address = Factory(:address)
       @brewery = Factory(:brewery, :address => @address)
     end
 
@@ -204,9 +197,9 @@ describe BreweriesController do
       response.should have_selector("input[name='brewery[address_attributes][postal_code]'][type='text']")
     end
 
-   it "should have an info text area" do
+   it "should have an description text area" do
       get :edit, :id => @brewery
-      response.should have_selector("textarea[name='brewery[info]']")
+      response.should have_selector("textarea[name='brewery[description]']")
     end
   end
 
@@ -219,11 +212,10 @@ describe BreweriesController do
     describe "success" do
       
       before(:each) do
-        @address = Factory(:address, :brewery => nil)
+        @address = Factory(:address)
         @attr = { :name       => "New Name", 
                   :address    =>  @address,
-                  :zipcode    => "09876",
-                  :info       => "new info" }
+                  :description => "new info" }
       end
 
       it "should change the brewery's attributes" do
@@ -231,7 +223,7 @@ describe BreweriesController do
         brewery = assigns(:brewery)
         @brewery.reload
         @brewery.name.should == brewery.name
-        @brewery.info.should == brewery.info
+        @brewery.description.should == brewery.description
         @brewery.address.should == brewery.address
       end
 
@@ -250,8 +242,8 @@ describe BreweriesController do
 
       before(:each) do
         @attr = { :name       => "", 
-                  :address    => "",
-                  :info       => "" }
+                  :address    => nil,
+                  :description => "" }
       end
 
       it "should render the 'edit' page" do

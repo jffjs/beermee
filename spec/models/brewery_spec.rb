@@ -5,7 +5,7 @@ describe Brewery do
   before(:each) do 
     @attr = { :name       => "Example Brewery",
               :website    => "http://www.beer.com",
-              :info       => "A great brewery..." }
+              :description => "A great brewery..." }
   end
 
   describe "validations" do
@@ -26,17 +26,17 @@ describe Brewery do
       bad_url.should_not be_valid
     end
 
-    it "should reject if info is too long" do
-      too_long_info = Brewery.new(@attr.merge(:info => "a" * 1001))
-      too_long_info.should_not be_valid
+    it "should reject if description is too long" do
+      too_long_desc = Brewery.new(@attr.merge(:description => "a" * 1001))
+      too_long_desc.should_not be_valid
     end
   end
 
   describe "address association" do
     
     before(:each) do
-      @brewery = Brewery.new(@attr)
-      @address = Factory(:address, :brewery => @brewery)
+      @address = Factory(:address)
+      @brewery = Brewery.new(@attr.merge(:address => @address))
     end
 
     it "should have an address attribute" do
@@ -45,6 +45,17 @@ describe Brewery do
 
     it "should have the correct address" do
       @brewery.address.should == @address
+    end
+  end
+
+  describe "image association" do
+    
+    before(:each) do
+      @brewery = Brewery.new(@attr)
+    end
+
+    it "should have an image attribute" do
+      @brewery.should respond_to(:image)
     end
   end
 end

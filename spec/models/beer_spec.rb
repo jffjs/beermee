@@ -29,8 +29,8 @@ describe Beer do
       long_name_beer.should_not be_valid
     end
 
-    it "should reject a beer with description > 500 characters" do
-      long_desc_beer = Beer.new(@attr.merge(:description => "a" * 501))
+    it "should reject a beer with description > 1000 characters" do
+      long_desc_beer = Beer.new(@attr.merge(:description => "a" * 1001))
       long_desc_beer.should_not be_valid
     end
 

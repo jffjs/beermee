@@ -32,7 +32,7 @@ class Beer < ActiveRecord::Base
 
   validates :name,        :presence => true,
                           :length => { :maximum => 50 } 
-  validates :description, :length => { :maximum => 500 }
+  validates :description, :length => { :maximum => 1000 }
   validates :abv,         :numericality => { :greater_than_or_equal_to => 0,
                                              :less_than_or_equal_to    => 100,
                                              :allow_nil => true }
