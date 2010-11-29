@@ -1,10 +1,8 @@
-<div id="main" >
-  <h1>Beers</h1>
-  <%= link_to "+ Add a beer", new_beer_path, :class => "add_link" %>
-  <br /><br />
-  <%= will_paginate %>
-  <ul class="beers">
-    <%= render @beers %>
-  </ul>
-  <%= will_paginate %>
-</div>
+<h1>Beers</h1>
+<%= link_to "+ Add a beer", new_beer_path, :class => "add_link" %>
+<br /><br />
+<%= will_paginate %>
+<ul class="beers">
+  <%= render @beers %>
+</ul>
+<%= will_paginate %>

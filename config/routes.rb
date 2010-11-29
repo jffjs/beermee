@@ -4,6 +4,7 @@ Beermee::Application.routes.draw do
   end 
 
   resources :breweries
+  resources :places
   resources :styles, :only => [:index, :show]
 
   root :to => "pages#home"

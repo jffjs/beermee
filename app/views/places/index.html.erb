@@ -1,0 +1,9 @@
+<h1>Places</h1>
+<%= link_to "+ Add a place", new_place_path, :class => "add_link" %>
+<br><br>
+<%= will_paginate %>
+<ul class="places">
+  <%= render @places %>
+</ul>
+<%= will_paginate %>
+

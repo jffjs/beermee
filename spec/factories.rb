@@ -18,6 +18,12 @@ Factory.define(:brewery) do |brewery|
   brewery.website     "http://www.beer.com"
 end
 
+Factory.define(:place) do |place|
+  place.name          "Sample Place"
+  place.description   "Some place info..."
+  place.website       "http://www.place.com"
+end
+
 Factory.define(:address) do |address|
   address.street      "123 Main st."
   address.city        "Beerville"
@@ -40,6 +46,10 @@ end
 
 Factory.sequence :brewery_name do |n|
   "Brewery #{n}"
+end
+
+Factory.sequence :place_name do |n|
+  "Place #{n}"
 end
 
 Factory.sequence :beer_name do |n|

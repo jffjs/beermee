@@ -1,0 +1,7 @@
+<li class="index_item" >
+  <span class="thumb"><%= link_to thumbnail(place), place%></span>
+  <h3><%= link_to place.name, place%></h3>
+  <%= link_to "delete", place, :method => :delete, :confirm => "Are you sure?",
+                               :title => "Delete #{place.name}", :class => "delete_link" %>
+
+</li>

@@ -13,4 +13,14 @@ jQuery(function($) {
       $("div#state").show();
     }
   });
+  $("select#place_address_attributes_country_id").change(function() {
+    if ($("select#place_address_attributes_country_id option:selected").val() != usa) {
+      $("#place_address_attributes_state_id option:first-child").attr('selected', 'selected');
+      $("div#state").hide();
+    } 
+    else {
+      $("div#state").show();
+    }
+  });
+
 });

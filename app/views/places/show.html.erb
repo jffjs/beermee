@@ -1,0 +1,13 @@
+<h1 id="showName"><%= @place.name %></h1>
+<div id="showImage">
+  <%= image_tag @place.image.url(:medium), :alt => @place.name %>
+</div>
+<%= link_to "Edit", edit_place_path, :class => "edit_link" %>
+<div id="infoSection">
+  <% unless @place.website.blank? %>
+    <strong>Website:</strong> <%= link_to @place.website, @place.website %>
+  <% end %>
+</div>
+<div id="description">
+  <%= @place.description %>
+</div>
