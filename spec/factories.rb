@@ -22,6 +22,7 @@ Factory.define(:place) do |place|
   place.name          "Sample Place"
   place.description   "Some place info..."
   place.website       "http://www.place.com"
+  place.group         "Bar"
 end
 
 Factory.define(:address) do |address|

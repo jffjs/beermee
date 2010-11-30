@@ -1,6 +1,10 @@
 <%= form_for @place, :html => { :multipart => true } do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
   <div class="field">
+    <%= f.label :group %>
+    <%= f.select :group, Place.select_options %>
+  </div>
+  <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>

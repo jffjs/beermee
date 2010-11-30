@@ -5,7 +5,8 @@ describe Place do
   before(:each) do
     @attr = { :name => "Joe's Bar",
               :description => "A description.",
-              :website => "http://www.joesbar.com" }
+              :website => "http://www.joesbar.com",
+              :group => "Bar" }
   end
 
   describe "validations" do
@@ -29,6 +30,16 @@ describe Place do
     it "should reject descriptions > 1000 characters" do
       long_desc_place = Place.new(@attr.merge(:description => "a" * 1001))
       long_desc_place.should_not be_valid
+    end
+
+    it "should require a group" do
+      no_group = Place.new(@attr.merge(:group => ""))
+      no_group.should_not be_valid
+    end
+
+    it "should reject an invalid group" do
+      bad_group = Place.new(@attr.merge(:group => "Boot"))
+      bad_group.should_not be_valid
     end
   end 
 

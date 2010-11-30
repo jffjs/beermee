@@ -1,11 +1,11 @@
 # == Schema Information
-# Schema version: 20101116221815
+# Schema version: 20101130052456
 #
 # Table name: breweries
 #
 #  id                 :integer         not null, primary key
 #  name               :string(255)
-#  info               :text
+#  description        :text
 #  website            :string(255)
 #  created_at         :datetime
 #  updated_at         :datetime
