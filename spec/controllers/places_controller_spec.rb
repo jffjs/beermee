@@ -93,6 +93,7 @@ describe PlacesController do
         @attr = { :name       => "Sample Place", 
                   :address    => @address,
                   :description => "Some sample info.",
+                  :group  => "Bar",
                   :website => "http://www.place.com" }
       end
 
