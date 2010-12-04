@@ -1,4 +1,5 @@
 class PlacesController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index, :show]
 
   # GET /places
   def index
@@ -23,7 +24,7 @@ class PlacesController < ApplicationController
   def create
     @place = Place.new(params[:place])
     if @place.save
-      flash[:success] = "Place successfully added"
+      flash[:notice] = "Place successfully added."
       redirect_to places_path
     else
       render 'new'
@@ -52,7 +53,7 @@ class PlacesController < ApplicationController
   def update
     @place = Place.find(params[:id])
     if @place.update_attributes(params[:place])
-      flash[:success] = "Place updated."
+      flash[:notice] = "Place updated."
       redirect_to @place
     else
       render 'edit'
@@ -62,7 +63,7 @@ class PlacesController < ApplicationController
   # DELETE /places/:id
   def destroy
     Place.find(params[:id]).destroy
-    flash[:success] = "Place destroyed."
+    flash[:notice] = "Place destroyed."
     redirect_to places_path
   end
 end

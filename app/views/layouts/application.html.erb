@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= @title %></title>
+    <title>BeerMee - <%= yield :title %></title>
     <%= render 'layouts/stylesheets' %>
     <%= javascript_include_tag  'jquery-1.4.2.min.js',
                                 'jquery-ui-1.8.5.custom.min.js',
@@ -17,6 +17,11 @@
     <div id="container">
       <%= render 'layouts/sidebar' %>
       <div id="main">
+        <% if flash[:notice] %>
+          <p class="notice"><%= notice %></p>
+        <% elsif flash[:alert] %>
+          <p class="alert"><%= alert %></p>
+        <% end %>
         <%= yield %>
       </div>
       <aside>

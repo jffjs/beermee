@@ -1,4 +1,5 @@
 class BeersController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index, :show]
   autocomplete :brewery, :name, :full => true
 
   # GET /beers
@@ -31,7 +32,7 @@ class BeersController < ApplicationController
     @beer = Beer.new(params[:beer])
     
     if @beer.save
-      flash[:success] = "Beer successfully added"
+      flash[:notice] = "Beer successfully added."
       redirect_to beers_path
     else
       render 'new'
@@ -62,7 +63,7 @@ class BeersController < ApplicationController
     @beer = Beer.find(params[:id])
 
     if @beer.update_attributes(params[:beer])
-      flash[:success] = "Beer updated"
+      flash[:notice] = "Beer updated."
       redirect_to @beer
     else
       render 'edit'
@@ -72,7 +73,7 @@ class BeersController < ApplicationController
   # DELETE /beers/:id
   def destroy
     Beer.find(params[:id]).destroy
-    flash[:success] = "Beer destroyed"
+    flash[:notice] = "Beer destroyed."
     redirect_to beers_path
   end
 end

@@ -1,14 +1,16 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.1'
+gem 'rails', '3.0.3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3-ruby', :require => 'sqlite3'
-gem 'will_paginate', '~> 3.0.pre2'
-gem 'rails3-jquery-autocomplete'
+gem 'devise'
+gem 'omniauth'
 gem 'paperclip'
+gem 'sqlite3-ruby', :require => 'sqlite3'
+gem 'rails3-jquery-autocomplete'
+gem 'will_paginate', '~> 3.0.pre2'
 
 group :development do
   gem 'rspec-rails', '2.0.0.beta.18'

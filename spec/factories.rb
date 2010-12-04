@@ -25,6 +25,12 @@ Factory.define(:place) do |place|
   place.group         "Bar"
 end
 
+Factory.define(:user) do |user|
+  user.email          "test@test.com"
+  user.password       "password"
+  user.password_confirmation  "password"
+end
+
 Factory.define(:address) do |address|
   address.street      "123 Main st."
   address.city        "Beerville"

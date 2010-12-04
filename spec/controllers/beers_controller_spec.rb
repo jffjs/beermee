@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe BeersController do
   render_views
+  login_user
 
   before(:each) do
     @style = Factory(:style)
@@ -46,6 +47,12 @@ describe BeersController do
     it "should be successful" do
       get :new
       response.should be_success
+    end
+
+    it "should redirect to log in page if not signed in" do
+      sign_out @user
+      get :new
+      response.should redirect_to new_user_session_path
     end
 
     it "should have a name field" do
@@ -94,7 +101,13 @@ describe BeersController do
   end
 
   describe "POST create" do
-    
+   
+    it "should redirect to sign in page if not signed in" do
+      sign_out @user
+      post :create, :beer => @attr
+      response.should redirect_to new_user_session_path
+    end
+
     describe "success" do
       
       before(:each) do
@@ -175,6 +188,12 @@ describe BeersController do
       response.should be_success
     end
 
+    it "should redirect to sign in page if not signed in" do
+      sign_out @user
+      get :edit, :id => @beer
+      response.should redirect_to new_user_session_path
+    end
+
     it "should have the right beer" do
       get :edit, :id => @beer
       assigns(:beer).should == @beer
@@ -212,6 +231,12 @@ describe BeersController do
       @beer = Factory(:beer)
     end
 
+    it "should redirect to sign in page if not signed in" do
+      sign_out @user
+      put :update, :id => @beer
+      response.should redirect_to new_user_session_path
+    end
+
     describe "success" do
       
       before(:each) do
@@ -242,7 +267,7 @@ describe BeersController do
 
       it "should have a flash message" do
         put :update, :id => @beer, :beer => @attr
-        flash[:success].should =~ /updated/
+        flash[:notice].should =~ /updated/
       end
     end
 
@@ -268,6 +293,12 @@ describe BeersController do
     
     before(:each) do
       @beer = Factory(:beer)
+    end
+
+    it "should redirect to sign in page if not signed in" do
+      sign_out @user
+      delete :destroy, :id => @beer
+      response.should redirect_to new_user_session_path
     end
 
     it "should remove the beer" do

@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe PlacesController do
   render_views
+  login_user
 
   describe "GET index" do
     
@@ -41,6 +42,12 @@ describe PlacesController do
     it "should be successful" do
       get :new
       response.should be_success
+    end
+
+    it "should redirect to sign in page if not signed in" do
+      sign_out @user
+      get :new
+      response.should redirect_to new_user_session_path
     end
 
     it "should have a name field" do
@@ -86,6 +93,12 @@ describe PlacesController do
 
   describe "POST create" do
     
+    it "should redirect to sign in page if not signed in" do
+      sign_out @user
+      post :create
+      response.should redirect_to new_user_session_path
+    end
+
     describe "success" do
       
       before(:each) do
@@ -164,6 +177,12 @@ describe PlacesController do
       response.should be_success
     end
 
+    it "should redirect to sign in page if not signed in" do
+      sign_out @user
+      get :edit, :id => @place
+      response.should redirect_to new_user_session_path
+    end
+
     it "should have the right place" do
       get :edit, :id => @place
       assigns(:place).should == @place
@@ -211,6 +230,12 @@ describe PlacesController do
       @place = Factory(:place)
     end
 
+    it "should redirect to sign in page if not signed in" do
+      sign_out @user
+      put :update, :id => @place
+      response.should redirect_to new_user_session_path
+    end
+
     describe "success" do
       
       before(:each) do
@@ -236,7 +261,7 @@ describe PlacesController do
 
       it "should have a flash message" do
         put :update, :id => @place, :place => @attr
-        flash[:success].should =~ /updated/
+        flash[:notice].should =~ /updated/
       end
     end
 
@@ -259,6 +284,12 @@ describe PlacesController do
 
     before(:each) do
       @place = Factory(:place)
+    end
+
+    it "should redirect to sign in page if not signed in" do
+      sign_out @user
+      delete :destroy, :id => @place
+      response.should redirect_to new_user_session_path
     end
 
     it "should remove the place" do

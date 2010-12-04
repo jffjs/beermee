@@ -1,4 +1,5 @@
 class BreweriesController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index, :show]
 
   # GET /breweries
   def index
@@ -29,7 +30,7 @@ class BreweriesController < ApplicationController
   def create
     @brewery = Brewery.new(params[:brewery])
     if @brewery.save
-      flash[:success] = "Brewery successfully added"
+      flash[:notice] = "Brewery successfully added."
       redirect_to breweries_path
     else
       render 'new'
@@ -58,7 +59,7 @@ class BreweriesController < ApplicationController
   def update
     @brewery = Brewery.find(params[:id])
     if @brewery.update_attributes(params[:brewery])
-      flash[:success] = "Brewery updated."
+      flash[:notice] = "Brewery updated."
       redirect_to @brewery
     else
       render 'edit'
@@ -68,7 +69,7 @@ class BreweriesController < ApplicationController
   # DELETE /breweries/:id
   def destroy
     Brewery.find(params[:id]).destroy
-    flash[:success] = "Brewery destroyed."
+    flash[:notice] = "Brewery destroyed."
     redirect_to breweries_path
   end
 end

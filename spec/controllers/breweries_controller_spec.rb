@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe BreweriesController do
   render_views
+  login_user
+
 
   describe "GET index" do
     
@@ -41,6 +43,12 @@ describe BreweriesController do
     it "should be successful" do
       get :new
       response.should be_success
+    end
+
+    it "should redirect to sign in page if not signed in" do
+      sign_out @user
+      get :new
+      response.should redirect_to new_user_session_path
     end
 
     it "should have a name field" do
@@ -86,6 +94,12 @@ describe BreweriesController do
 
   describe "POST create" do
     
+    it "should redirect to sign in page if not signed in" do
+      sign_out @user
+      post :create
+      response.should redirect_to new_user_session_path
+    end
+
     describe "success" do
       
       before(:each) do
@@ -162,6 +176,12 @@ describe BreweriesController do
       response.should be_success
     end
 
+    it "should redirect to sign in page if not signed in" do
+      sign_out @user
+      get :edit, :id => @brewery
+      response.should redirect_to new_user_session_path
+    end
+
     it "should have the right brewery" do
       get :edit, :id => @brewery
       assigns(:brewery).should == @brewery
@@ -209,6 +229,12 @@ describe BreweriesController do
       @brewery = Factory(:brewery)
     end
 
+    it "should redirect to sign in page if not signed in" do
+      sign_out @user
+      put :update, :id => @brewery
+      response.should redirect_to new_user_session_path
+    end
+
     describe "success" do
       
       before(:each) do
@@ -234,7 +260,7 @@ describe BreweriesController do
 
       it "should have a flash message" do
         put :update, :id => @brewery, :brewery => @attr
-        flash[:success].should =~ /updated/
+        flash[:notice].should =~ /updated/
       end
     end
 
@@ -257,6 +283,12 @@ describe BreweriesController do
 
     before(:each) do
       @brewery = Factory(:brewery)
+    end
+
+    it "should redirect to sign in page if not signed in" do
+      sign_out @user
+      delete :destroy, :id => @brewery
+      response.should redirect_to new_user_session_path
     end
 
     it "should remove the brewery" do

@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def title(page_title)
+    content_for(:title) { page_title }
+  end
+
   def logo
     image_tag("logo1.png", :alt => "BeerMee")
   end
@@ -8,4 +12,9 @@ module ApplicationHelper
     image_tag item.image.url(:thumb), :alt => item.name, :class => "thumb"
   end
 
+  def social_icon(provider, size)
+    link_to(image_tag("social_icons/#{provider}_#{size}.png",
+                      :alt => "Sign in with #{provider.to_s.titleize}"),
+            "/auth/#{provider}")
+  end
 end

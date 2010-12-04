@@ -242,6 +242,17 @@ footer {
 	border-top: 2px solid #888;
 }
 
+.notice {
+	background:#e6efc2;
+	color:#264409;
+	border-color:#c6d880;
+}
+
+.debug_dump {
+	clear:left;
+	text-align: center;
+}
+
 /*** Navigation ***/
 
 #sidenav {
@@ -403,36 +414,21 @@ div.field textarea {
 	border-bottom-style: solid;
 	border-bottom-color: #D3D6D2;
 }
-	
-.home_box {
-	width: 350px;
-	height: 100px;
-	padding: 20px;
+
+/*** Users ***/
+#external-auth {
+	float: right;
+	margin-right: 40px;
 }
 
-#search_home {
-	background: #71F25A; /*#F5C731;*/
-	text-align: center;
-	float: right
-}
-#search_home h1 {
-	font-weight: bold;
+ul#social-icons li {
+	list-style-type: none;
+	display: inline-block;
 }
 
-#info_home {
-	font-size: 1.5em;
-	float: left
+div#main div#left {
+	width: 300px;
+	margin-right: 20px;
+	float: left;
 }
-
-#new_beers {
-	padding-top: 40px;
-
-	clear: left;
-}
-
-.debug_dump {
-	clear:left;
-	text-align: center;
-}
-
 
