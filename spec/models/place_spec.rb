@@ -59,6 +59,18 @@ describe Place do
     end
   end
 
+  describe "activity association" do
+    
+    before(:each) do
+      @place = Place.new(@attr)
+      @activity = Factory(:activity, :place => @place, :beer => Factory(:beer))
+    end
+
+    it "should have an activities attribute" do
+      @place.should respond_to :activities
+    end
+  end
+
   describe "image association" do
     
     before(:each) do

@@ -10,7 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101204173224) do
+ActiveRecord::Schema.define(:version => 20101210013325) do
+
+  create_table "activities", :force => true do |t|
+    t.integer  "place_id"
+    t.integer  "beer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.string   "activity_type"
+  end
 
   create_table "addresses", :force => true do |t|
     t.string   "street"
@@ -28,6 +37,12 @@ ActiveRecord::Schema.define(:version => 20101204173224) do
     t.integer  "user_id"
     t.string   "provider"
     t.string   "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "beer_logs", :force => true do |t|
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -81,6 +96,15 @@ ActiveRecord::Schema.define(:version => 20101204173224) do
     t.string   "image_content_type"
     t.string   "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "ratings", :force => true do |t|
+    t.integer  "beer_id"
+    t.integer  "user_id"
+    t.decimal  "score"
+    t.string   "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "states", :force => true do |t|

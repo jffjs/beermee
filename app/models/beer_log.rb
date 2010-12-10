@@ -1,16 +1,15 @@
 # == Schema Information
 # Schema version: 20101205015617
 #
-# Table name: authentications
+# Table name: beer_logs
 #
 #  id         :integer         not null, primary key
 #  user_id    :integer
-#  provider   :string(255)
-#  uid        :string(255)
 #  created_at :datetime
 #  updated_at :datetime
 #
 
-class Authentication < ActiveRecord::Base
+class BeerLog < ActiveRecord::Base
   belongs_to :user
+  has_many :activities, :as => :trackable
 end

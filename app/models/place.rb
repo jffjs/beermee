@@ -19,6 +19,7 @@
 class Place < ActiveRecord::Base
   GROUPS = %w(Bar Brewpub Store)
 
+  has_many :activities
   has_one :address, :as => :addressable
   accepts_nested_attributes_for :address
   

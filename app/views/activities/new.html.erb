@@ -1,0 +1,10 @@
+<%= form_for @activity do |f| %>
+  <%= f.hidden_field :beer_id %>
+  <div class="field">
+    <%= f.label :place_name, "Where are you?" %>
+    <%= f.autocomplete_field :place_name, autocomplete_place_name_activities_path %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>

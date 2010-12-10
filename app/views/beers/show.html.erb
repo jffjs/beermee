@@ -26,3 +26,5 @@
 <div id="description">
   <%= @beer.description %>
 </div>
+<%= link_to "I'm drinking this", new_activity_path(:beer => @beer) %>
+<%= render :partial => "activities/feed", :locals => { :activities => @beer.activities } %>

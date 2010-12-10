@@ -29,6 +29,8 @@ class Beer < ActiveRecord::Base
                                  :small => "30x40#" }
   belongs_to :brewery
   belongs_to :style
+  has_many  :activities, :order => "created_at DESC"
+  has_many  :ratings
 
   validates :name,        :presence => true,
                           :length => { :maximum => 50 } 

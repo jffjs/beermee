@@ -107,6 +107,18 @@ describe Beer do
     end
   end
 
+  describe "activities association" do
+    
+    before(:each) do
+      @beer = Beer.create(@attr)
+      @activity = Factory(:activity, :beer => @beer, :place => Factory(:place))
+    end
+
+    it "should have an activities attribute" do
+      @beer.should respond_to :activities
+    end
+  end
+
   describe "brewery_name attribute" do
     
     before(:each) do

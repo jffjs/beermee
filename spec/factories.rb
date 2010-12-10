@@ -31,6 +31,11 @@ Factory.define(:user) do |user|
   user.password_confirmation  "password"
 end
 
+Factory.define(:activity) do |activity|
+  activity.association  :beer
+  activity.association  :place
+end
+
 Factory.define(:address) do |address|
   address.street      "123 Main st."
   address.city        "Beerville"
