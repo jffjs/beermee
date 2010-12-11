@@ -36,6 +36,13 @@ Factory.define(:activity) do |activity|
   activity.association  :place
 end
 
+Factory.define(:rating) do |rating|
+  rating.association    :beer
+  rating.association    :user
+  rating.score          3
+  rating.notes          "Some notes"
+end
+
 Factory.define(:address) do |address|
   address.street      "123 Main st."
   address.city        "Beerville"

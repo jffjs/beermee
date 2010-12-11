@@ -1,10 +1,21 @@
-<%= form_for @activity do |f| %>
-  <%= f.hidden_field :beer_id %>
+<% content_for :scripts do %>
+  <%= javascript_include_tag 'jquery.rating.js', 'jquery.metadata.js' %>
+<% end %>
+<%= form_tag activities_path do %>
+  <%= hidden_field :activity, :beer_id %>
+  <%= hidden_field :rating, :beer_id %>
   <div class="field">
-    <%= f.label :place_name, "Where are you?" %>
-    <%= f.autocomplete_field :place_name, autocomplete_place_name_activities_path %>
+    <%= star_rating %>
+  </div><br>
+  <div class="field">
+    <%= label :rating, :notes %>
+    <%= text_area :rating, :notes %> 
+  </div>
+  <div class="field">
+    <%= label :activity, :place_name, "Where are you?" %>
+    <%= autocomplete_field :activity, :place_name, autocomplete_place_name_activities_path %>
   </div>
   <div class="actions">
-    <%= f.submit "Submit" %>
+    <%= submit_tag "Submit" %>
   </div>
 <% end %>

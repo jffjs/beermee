@@ -12,13 +12,14 @@ describe ActivitiesController do
     end
   end
 
-  describe "GET 'create'" do
+  describe "POST 'create'" do
     
     describe "success" do
       
       before(:each) do
         beer = Factory(:beer)
         place = Factory(:place)
+        @rating = Factory(:rating, :beer => beer, :user => @user)
         @attr = { :beer => beer,
                   :place_name => place.name,
                   :user => @user }
