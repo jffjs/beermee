@@ -63,7 +63,8 @@ describe Place do
     
     before(:each) do
       @place = Place.new(@attr)
-      @activity = Factory(:activity, :place => @place, :beer => Factory(:beer))
+      @activity = Factory(:activity, :place => @place, :beer => Factory(:beer),
+                                     :user => Factory(:user))
     end
 
     it "should have an activities attribute" do

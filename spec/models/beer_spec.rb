@@ -111,7 +111,8 @@ describe Beer do
     
     before(:each) do
       @beer = Beer.create(@attr)
-      @activity = Factory(:activity, :beer => @beer, :place => Factory(:place))
+      @activity = Factory(:activity, :beer => @beer, :place => Factory(:place),
+                                     :user => Factory(:user))
     end
 
     it "should have an activities attribute" do
