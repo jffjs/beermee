@@ -42,6 +42,10 @@ class BeersController < ApplicationController
   # GET /beers/:id
   def show
     @beer = Beer.find(params[:id])
+    if user_signed_in?
+      @rating =   @beer.ratings.find_by_user_id(current_user.id)
+      @rating ||= @beer.ratings.build(:user_id => current_user.id)
+    end
 
     respond_to do |format| 
       format.html

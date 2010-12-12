@@ -2,7 +2,8 @@ Beermee::Application.routes.draw do
   devise_for :users, :controllers => {:registrations => 'registrations'}
   match '/auth/:provider/callback' => 'authentications#create'
 
-  resources :activities, :only => [:new, :create, :destroy] do
+  resources :ratings,     :only => [:update, :create]
+  resources :activities,  :only => [:new, :create, :destroy] do
     get :autocomplete_place_name, :on => :collection
   end
     

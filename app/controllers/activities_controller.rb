@@ -5,6 +5,7 @@ class ActivitiesController < ApplicationController
   def new
     @activity = Activity.new(:beer_id => params[:beer])
     @rating = Rating.find_by_beer_id_and_user_id(params[:beer], current_user.id)
+
     @rating = Rating.new(:beer_id => params[:beer]) unless @rating
 
     respond_to do |format|

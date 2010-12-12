@@ -46,6 +46,18 @@ class Beer < ActiveRecord::Base
                                        :allow_blank => true }
 
 
+  def average_rating
+    value = 0
+    total = 0
+    ratings.each do |rating| 
+      unless rating.new_record?
+        value += rating.score 
+        total += 1
+      end
+    end
+    value.to_f / total.to_f
+  end
+
 # Virtual attributes
   def brewery_name
     brewery.name if brewery
@@ -54,5 +66,4 @@ class Beer < ActiveRecord::Base
   def brewery_name=(name)
     self.brewery = Brewery.find_by_name(name) unless name.blank?
   end
-
 end

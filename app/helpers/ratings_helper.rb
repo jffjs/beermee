@@ -1,8 +1,9 @@
 module RatingsHelper
   def star_rating(options={})
     readonly = options[:readonly] ? options[:readonly] : false
+    checked = options[:rating] ? options[:rating] : current_user_rating
     render :partial => 'ratings/stars', :locals => { :readonly => readonly,
-                                                     :checked => current_user_rating }
+                                                     :checked => checked } 
   end
 
   def current_user_rating

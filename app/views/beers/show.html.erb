@@ -1,12 +1,24 @@
 <%= title "#{@beer.name} | #{@beer.brewery.name}" %>
+<% content_for :scripts do %>
+  <%= javascript_include_tag 'jquery.rating.pack.js', 'jquery.metadata.js', 'rating.js' %>
+<% end %>
 <h3 id="showHeadTop">
   <%= link_to @beer.style.name, @beer.style, :class => "undecorated"%>
 </h3>
 <h1 id="showName"><%= @beer.name %></h1>
+<div id="averageRating">
+  <%= star_rating :readonly => true, :rating => @beer.average_rating %>
+</div>
 <div id="showImage">
   <%= image_tag @beer.image.url(:medium), :alt => @beer.name %>
 </div>
 <%= link_to "Edit", edit_beer_path, :class => "edit_link" %>
+<% if user_signed_in? %>
+  <div id="userOptions">
+    <%= link_to "I'm drinking this", new_activity_path(:beer => @beer) %>
+    <%= render :partial => "ratings/star_form" %>
+  </div>
+<% end %>
 <div id="infoSection" >
   <p>
     <span class="label"><strong>Brewed by:</strong></span>
@@ -26,5 +38,4 @@
 <div id="description">
   <%= @beer.description %>
 </div>
-<%= link_to "I'm drinking this", new_activity_path(:beer => @beer) %>
 <%= render :partial => "activities/feed", :locals => { :activities => @beer.activities } %>

@@ -45,6 +45,14 @@ div#infoSection p span.label {
 }
 
 /* Beer show */
+div#userOptions {
+	clear:left;
+	margin-left: 20px;
+}
+
+form.rating {
+	margin-left: 0px;
+}
 
 /* Brewery show */
 div#breweryBeerList {

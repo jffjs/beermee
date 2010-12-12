@@ -1,0 +1,3 @@
+$('form.rating').replaceWith('<%= escape_javascript(render "ratings/star_form") %>');
+$('div#averageRating').html('<%= escape_javascript(star_rating :readonly => true, :rating => @rating.beer.average_rating) %>');
+applyStarRating();

@@ -1,0 +1,4 @@
+<%= form_for @rating, :remote => true, :html => { :class => "rating" } do |f| %>
+  <%= f.hidden_field :beer_id %>
+  <%= star_rating :rating => @rating.score %>
+<% end %>

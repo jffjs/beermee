@@ -1,0 +1,2 @@
+$('div#averageRating').html('<%= escape_javascript(star_rating :readonly => true, :rating => @rating.beer.average_rating) %>');
+applyStarRating();
