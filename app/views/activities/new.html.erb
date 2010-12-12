@@ -1,6 +1,9 @@
 <% content_for :scripts do %>
   <%= javascript_include_tag 'jquery.rating.js', 'jquery.metadata.js' %>
 <% end %>
+<%= form_for @rating do |f| %>
+  <%= star_rating %>
+<% end %>
 <%= form_tag activities_path do %>
   <%= hidden_field :activity, :beer_id %>
   <%= hidden_field :rating, :beer_id %>
