@@ -1,5 +1,5 @@
 <% split = readonly ? 4 : 2 %>
-<%= radio_button_tag "rating[score]", 0.25, checked <= 0.25, 
+<%= radio_button_tag "rating[score]", 0.25, checked > 0 && checked <= 0.25, 
                       :disabled => readonly, 
                       :class => "auto-submit-star {split:#{split}}" if readonly %>
 <%= radio_button_tag "rating[score]", 0.5,  checked > 0.25 && checked <= 0.5, 

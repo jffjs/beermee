@@ -18,14 +18,17 @@ class ActivitiesController < ApplicationController
     @activity = current_user.activities.build(params[:activity])
     @activity.activity_type = "log"
 
-    @rating = Rating.find_by_beer_id_and_user_id(params[:rating][:beer_id], current_user.id)
-    if @rating 
-      @rating.update_attributes(params[:rating])
-    else
-      @rating = current_user.ratings.build(params[:rating])
+    unless params[:rating][:notes].blank?
+      @rating = Rating.find_by_beer_id_and_user_id(params[:rating][:beer_id], 
+                                                   current_user.id)
+      if @rating 
+        @rating.update_attributes(params[:rating])
+      else
+        @rating = current_user.ratings.create(params[:rating])
+      end
     end
 
-    if @activity.save && @rating.save
+    if @activity.save
       redirect_to root_path
     else
       render 'new'

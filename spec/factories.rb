@@ -38,7 +38,6 @@ end
 
 Factory.define(:rating) do |rating|
   rating.association    :beer
-  rating.association    :user
   rating.score          3
   rating.notes          "Some notes"
 end

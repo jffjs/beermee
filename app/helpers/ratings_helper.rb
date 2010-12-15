@@ -10,7 +10,7 @@ module RatingsHelper
     if rating = current_user.ratings.find_by_beer_id(params[:beer])
       rating.score
     else
-      3 # default value
+      0 # default value
     end
   end
 end
