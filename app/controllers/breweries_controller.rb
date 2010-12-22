@@ -49,6 +49,8 @@ class BreweriesController < ApplicationController
   # GET /breweries/:id/edit
   def edit
     @brewery = Brewery.find(params[:id])
+    
+    @brewery.build_address if @brewery.address.nil?
 
     respond_to do |format|
       format.html # edit.html.erb

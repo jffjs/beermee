@@ -1,0 +1,13 @@
+= title @brewery.name
+%h1#showName= @brewery.name
+#showImage
+  = image_tag @brewery.image.url(:medium), :alt => @brewery.name
+= link_to "Edit", edit_brewery_path, :class => "edit_link"
+#infoSection
+  - unless @brewery.website.blank?
+    %strong Website:
+    = link_to @brewery.website, @brewery.website
+#description
+  = @brewery.description
+- content_for :aside do
+  = render 'beer_list'
