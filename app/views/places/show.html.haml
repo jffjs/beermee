@@ -1,0 +1,10 @@
+%h1#showName= @place.name
+#showImage
+  = image_tag @place.image.url(:medium), :alt => @place.name
+= link_to "Edit", edit_place_path, :class => "edit_link"
+#infoSection
+  - unless @place.website.blank?
+    %strong Website:
+    = link_to @place.website, @place.website
+#description
+  = @place.description
