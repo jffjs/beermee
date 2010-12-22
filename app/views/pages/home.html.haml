@@ -1,0 +1,4 @@
+= title "Home"
+= render :partial => "shared/external_auth", :locals => {:icon_size => 64}
+- if user_signed_in? 
+  = render :partial => "activities/feed", :locals => { :activities => @activities}

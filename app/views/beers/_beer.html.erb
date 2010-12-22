@@ -1,9 +1,0 @@
-<li class="index_item" >
-  <span class="thumb"><%= link_to thumbnail(beer) %></span>
-  <h3><%= link_to beer.name, beer %></h3>
-  <% unless beer.brewery.nil? %>
-    <span class="item_sub"><%= link_to beer.brewery.name, beer.brewery %></span>
-  <% end %>
-  <%= link_to "delete", beer, :method => :delete, :confirm => "Are you sure?",
-                                 :title => "Delete #{beer.name}", :class => "delete_link" %>
-</li>
