@@ -1,0 +1,9 @@
+%ul
+  - activities.each do |activity|
+    %li
+      %p
+        = activity.user.email
+        had
+        = link_to activity.beer.name, activity.beer
+        = time_ago_in_words activity.created_at
+        ago.

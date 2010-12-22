@@ -27,4 +27,10 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   config.include Devise::TestHelpers, :type => :controller
   config.extend ControllerMacros
+
+  config.include Haml::Helpers  
+  config.include ActionView::Helpers  
+  config.before(:each) do
+    init_haml_helpers
+  end
 end

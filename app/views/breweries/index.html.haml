@@ -1,0 +1,9 @@
+= title "Breweries"
+%h1 Breweries
+= link_to "+ Add a brewery", new_brewery_path, :class => "add_link"
+%br
+%br
+= will_paginate
+%ul.breweries
+  = render @breweries
+= will_paginate

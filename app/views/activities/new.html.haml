@@ -1,0 +1,15 @@
+- content_for :scripts do
+  = javascript_include_tag 'jquery.rating.pack.js', 'jquery.metadata.js', 'rating.js'
+= render :partial => 'ratings/star_form'
+%br
+= form_tag activities_path, :class => "new_activity" do
+  = hidden_field :activity, :beer_id
+  = hidden_field :rating, :beer_id
+  .field
+    = label :rating, :notes
+    = text_area :rating, :notes
+  .field
+    = label :activity, :place_name, "Where are you?"
+    = autocomplete_field :activity, :place_name, autocomplete_place_name_activities_path
+  .actions
+    = submit_tag "Submit"

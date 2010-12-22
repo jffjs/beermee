@@ -1,0 +1,37 @@
+= form_for @place, :html => { :multipart => true } do |f|
+  = render 'shared/error_messages', :object => f.object
+  .field
+    = f.label :group
+    = f.select :group, Place.select_options
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :website
+    = f.text_field :website
+  .field
+    = f.label :description
+    = f.text_area :description
+  = f.fields_for :address do |builder|
+    .field
+      = builder.label :street, "Address"
+      = builder.text_field :street
+    .field#city
+      = builder.label :city
+      = builder.text_field :city
+    .field#country
+      = builder.label :country
+      = builder.select  :country_id, Country.all.collect {|c| [c.name, c.id] }, 
+                        :include_blank => true
+    .field#state
+      = builder.label :state
+      = builder.select  :state_id, State.all.collect {|s| [s.name, s.id] }, 
+                        :include_blank => true
+    .field
+      = builder.label :postal_code, "Postal Code"
+      = builder.text_field :postal_code
+  .field
+    = f.label :image
+    = f.file_field  :image
+  .actions
+    = f.submit "Submit"

@@ -1,0 +1,9 @@
+#breweryBeerList
+  = link_to "+ Add", new_beer_path(:brewery_id => @brewery), :class => "add_link"
+  %div
+    %h2 Beers
+    %ul
+      - @brewery.beers.each do |beer|
+        %li
+          .thumb= link_to thumbnail(beer), beer
+          = link_to beer.name, beer
