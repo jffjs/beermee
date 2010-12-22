@@ -1,0 +1,8 @@
+%h2#showName
+  = link_to "Beer Styles", styles_path, :class => "undecorated"
+  &gt; 
+  = @style.name
+= will_paginate @beers
+%ul.beers
+  = render @beers
+= will_paginate @beers
