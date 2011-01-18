@@ -1,0 +1,18 @@
+= render :partial => 'shared/actions'
+= render :partial => "activities/feed", :locals => { :activities => @activities}
+- content_for :aside do
+  .side-box
+    .title
+      %h4
+        %strong Favorites
+    .box
+      filler
+      filler
+  .side-box
+    .title
+      %h4
+        %strong Recommendations
+    .box
+      filler
+      filler
+

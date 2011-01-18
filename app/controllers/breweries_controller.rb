@@ -40,6 +40,7 @@ class BreweriesController < ApplicationController
   # GET /breweries/:id
   def show
     @brewery = Brewery.find(params[:id])
+    @activities = @brewery.activities
     
     respond_to do |format|
       format.html # show.html.erb

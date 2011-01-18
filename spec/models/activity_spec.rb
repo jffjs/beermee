@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Activity do
-  
+
   before(:each) do
     @place  = Factory(:place)
     @beer   = Factory(:beer)

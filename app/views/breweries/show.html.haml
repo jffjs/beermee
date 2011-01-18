@@ -1,13 +1,26 @@
 = title @brewery.name
-%h1#showName= @brewery.name
-#showImage
+- content_for :scripts do
+  = javascript_include_tag  'jquery.rating.pack.js', 
+                            'jquery.metadata.js',
+                            'rating.js'
+
+
+#show-image.span-6
   = image_tag @brewery.image.url(:medium), :alt => @brewery.name
-= link_to "Edit", edit_brewery_path, :class => "edit_link"
-#infoSection
-  - unless @brewery.website.blank?
-    %strong Website:
-    = link_to @brewery.website, @brewery.website
-#description
-  = @brewery.description
+#show-info.span-12
+  #show-title
+    %h1= @brewery.name
+    = link_to "Edit", edit_brewery_path, :class => "edit_link"
+
+  #info
+    - unless @brewery.website.blank?
+      %span.label
+        %strong Website:
+      = link_to @brewery.website, @brewery.website
+  #description
+    = @brewery.description
+#show-actions.span-6.last
+
+= render :partial => 'activities/feed', :locals => { :activities => @activities } unless @activities.nil?
 - content_for :aside do
   = render 'beer_list'

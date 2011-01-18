@@ -25,12 +25,13 @@ class Beer < ActiveRecord::Base
                   :image, :brewery_name
 
   has_attached_file :image, 
-                    :styles => { :medium => "300x300>", :thumb => "60x80#",
+                    :styles => { :medium => "200x200>", :thumb => "60x80#",
                                  :small => "30x40#" }
   belongs_to :brewery
   belongs_to :style
-  has_many  :activities, :order => "created_at DESC"
-  has_many  :ratings
+  has_many  :activities,  :dependent => :destroy
+  has_many  :ratings,     :dependent => :destroy
+
 
   validates :name,        :presence => true,
                           :length => { :maximum => 50 } 
@@ -50,12 +51,16 @@ class Beer < ActiveRecord::Base
     value = 0
     total = 0
     ratings.each do |rating| 
-      unless rating.new_record?
+      unless rating.new_record? or rating.score.nil?
         value += rating.score 
         total += 1
       end
     end
-    value.to_f / total.to_f
+    total > 0 ? value.to_f / total.to_f : nil   # can't divide by zero
+  end
+
+  def rated_by_user?(user)
+    !ratings.find_by_user_id(user).nil?
   end
 
 # Virtual attributes

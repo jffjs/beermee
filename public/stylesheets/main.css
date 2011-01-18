@@ -1,0 +1,171 @@
+/*#3f2b09;*/
+/*#2C86FC;*/
+body {
+  background: #fafafa; }
+
+header {
+  width: 100%;
+  background: #2b2b2b;
+  border-bottom: 2px solid #cdcdcd;
+  height: 80px; }
+  header #header-container {
+    margin: 0px auto;
+    position: relative;
+    width: 950px; }
+  header img.logo {
+    margin-top: 12px; }
+  header nav {
+    float: right; }
+    header nav ul li {
+      list-style-type: none;
+      display: inline-block; }
+      header nav ul li a {
+        padding: 0 5px; }
+
+#actions form, #actions #browse-by {
+  display: inline-block;
+  vertical-align: top; }
+#actions input[type=text] {
+  width: 248px;
+  height: 30px; }
+#actions input[type=submit] {
+  width: 64px;
+  height: 32px; }
+#actions #browse-by {
+  margin-left: 12px; }
+  #actions #browse-by h3, #actions #browse-by ul {
+    display: inline-block; }
+  #actions #browse-by h3 {
+    padding-top: 4px;
+    vertical-align: top; }
+  #actions #browse-by li {
+    list-style-type: none;
+    text-align: left; }
+    #actions #browse-by li a {
+      font-size: 1.5em; }
+
+#feed li.activity {
+  list-style-type: none;
+  width: 544px;
+  border-bottom: 2px solid #cdcdcd;
+  padding: 4px;
+  margin-bottom: 4px; }
+  #feed li.activity .activity-info, #feed li.activity .beer-info, #feed li.activity .rating {
+    display: inline-block;
+    vertical-align: top; }
+    #feed li.activity .activity-info p, #feed li.activity .beer-info p, #feed li.activity .rating p {
+      margin-bottom: 6px; }
+  #feed li.activity .activity-info {
+    margin-left: 24px; }
+    #feed li.activity .activity-info .activity-beer {
+      margin-left: 24px;
+      vertical-align: top; }
+      #feed li.activity .activity-info .activity-beer .beer-info {
+        margin-left: 24px;
+        width: 168px; }
+        #feed li.activity .activity-info .activity-beer .beer-info h3 {
+          margin-bottom: 6px; }
+      #feed li.activity .activity-info .activity-beer .rating {
+        width: 200px; }
+        #feed li.activity .activity-info .activity-beer .rating .notes {
+          clear: left;
+          margin-top: 24px; }
+          #feed li.activity .activity-info .activity-beer .rating .notes a {
+            margin-right: 24px; }
+      #feed li.activity .activity-info .activity-beer .thumbnail {
+        display: inline-block; }
+
+#show-info #info {
+  clear: left; }
+  #show-info #info p {
+    margin: 0px; }
+  #show-info #info span.label {
+    width: 70px;
+    padding-right: 6px;
+    display: inline-block;
+    text-align: right; }
+#show-info #show-title h1 {
+  display: inline-block; }
+#show-info #show-title a {
+  display: inline-block;
+  margin-left: 24px;
+  vertical-align: top; }
+#show-info #description {
+  padding-top: 24px; }
+
+#beer-list li.beer-item {
+  list-style-type: none;
+  min-height: 92px; }
+  #beer-list li.beer-item .thumb {
+    float: left;
+    margin-right: 12px; }
+    #beer-list li.beer-item .thumb img {
+      border: 1px solid #cdcdcd; }
+  #beer-list li.beer-item .beer-brewery {
+    float: left;
+    margin-left: 300px;
+    position: absolute; }
+  #beer-list li.beer-item .rating {
+    float: left;
+    margin-left: 520px;
+    position: absolute; }
+  #beer-list li.beer-item a.delete-link {
+    float: left;
+    margin-left: 700px;
+    position: absolute;
+    font-size: .9em; }
+  #beer-list li.beer-item p {
+    font-size: 11px;
+    margin-right: 300px; }
+
+footer {
+  background: #2b2b2b;
+  height: 60px;
+  border-top: 2px solid #cdcdcd; }
+  footer nav ul {
+    text-align: center; }
+    footer nav ul li {
+      list-style-type: none;
+      display: inline-block;
+      text-align: center;
+      border-right: 1px solid #ccc;
+      padding: 0 8px; }
+    footer nav ul li#last-footer {
+      border-right: none; }
+
+div.feed-box .title {
+  padding: 8px 10px;
+  background: #dedede;
+  border-bottom: 1px solid #cdcdcd; }
+  div.feed-box .title h1, div.feed-box .title h2, div.feed-box .title h3, div.feed-box .title h4, div.feed-box .title p, div.feed-box .title a {
+    /*color: $body-color;*/
+    margin: 0px;
+    display: inline-block; }
+  div.feed-box .title a {
+    text-decoration: underline;
+    float: right; }
+div.feed-box .box {
+  border-right: 2px solid #cdcdcd;
+  background: #fafafa; }
+
+div.side-box .title {
+  background: #E5ECF9;
+  border-top: 1px solid #cdcdcd;
+  padding: 8px 10px; }
+div.side-box h3, div.side-box h4, div.side-box p {
+  margin: 0px; }
+div.side-box .box {
+  background: #fafafa; }
+
+.colborder {
+  border-right: 2px solid #cdcdcd; }
+
+.round {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 6px; }
+
+a {
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }

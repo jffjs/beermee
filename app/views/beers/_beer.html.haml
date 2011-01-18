@@ -1,12 +1,17 @@
-%li.index_item
-  %span.thumb
-    = link_to thumbnail(beer)
-  %h3
-    = link_to beer.name, beer
-  - unless beer.brewery.nil?
-    %span.item_sub
-      = link_to beer.brewery.name, beer.brewery
+%li.beer-item
+  .thumb
+    = link_to thumbnail(beer), beer
+  %span.beer-brewery
+    = link_to beer.brewery.name, beer.brewery
+  %span.rating
+    %form
+      = star_rating( :readonly => true, :rating => beer.average_rating )
   = link_to "delete", beer, :method => :delete, 
                             :confirm => "Are you sure?",
                             :title => "Delete #{beer.name}", 
-                            :class => "delete_link"
+                            :class => "delete-link"
+  %h3
+    = link_to beer.name, beer
+  %p
+    = beer.description unless beer.description.blank?
+

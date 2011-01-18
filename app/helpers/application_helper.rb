@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def logo
-    image_tag("logo1.png", :alt => "BeerMee")
+    image_tag("logo-1.png", :alt => "BeerMee", :class => "logo" )
   end
 
   def thumbnail(item)

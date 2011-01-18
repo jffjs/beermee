@@ -111,12 +111,46 @@ describe Beer do
     
     before(:each) do
       @beer = Beer.create(@attr)
-      @activity = Factory(:activity, :beer => @beer, :place => Factory(:place),
-                                     :user => Factory(:user))
+      @user = Factory(:user)
+      @a1 = Factory(:activity, :beer => @beer, :user => @user, :created_at => 1.day.ago)
+      @a2 = Factory(:activity, :beer => @beer, :user => @user, :created_at => 1.hour.ago)
     end
 
     it "should have an activities attribute" do
       @beer.should respond_to :activities
+    end
+
+    it "should have activities in the correct order" do
+      @beer.activities.should == [@a2, @a1]
+    end
+
+    it "should destroy associated activities" do
+      @beer.destroy
+      [@a1, @a2].each do |activity|
+        Activity.find_by_id(activity.id).should be_nil
+      end
+    end
+  end
+
+  describe "ratings association" do
+    
+    before(:each) do
+      @beer = Beer.create(@attr)
+      u1 = Factory(:user)
+      u2 = Factory(:user, :email => "user2@test.com")
+      @r1 = Factory(:rating, :beer => @beer, :user => u1)
+      @r2 = Factory(:rating, :beer => @beer, :user => u2)
+    end
+
+    it "should have a ratings attribute" do
+      @beer.should respond_to :ratings
+    end
+
+    it "should destroy associated ratings when it's destroyed" do
+      @beer.destroy
+      [@r1, @r2].each do |rating|
+        Rating.find_by_id(rating.id).should be_nil
+      end
     end
   end
 

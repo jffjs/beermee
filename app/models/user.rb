@@ -29,8 +29,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
   has_many  :authentications
-  has_many  :activities, :order => "created_at DESC"
-  has_many  :ratings 
+  has_many  :activities, :dependent => :destroy
+  has_many  :ratings, :dependent => :destroy
 
   def apply_omniauth(omniauth)
     self.email = omniauth['user_info']['email'] if email.blank?

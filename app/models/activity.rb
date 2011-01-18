@@ -21,6 +21,8 @@ class Activity < ActiveRecord::Base
   validates  :beer,  :presence => true
   validates  :user,  :presence => true
 
+  default_scope :order => 'activities.created_at DESC'
+
   def place_name
     place.name if place
   end
@@ -28,4 +30,9 @@ class Activity < ActiveRecord::Base
   def place_name=(name)
     self.place = Place.find_by_name(name) unless name.blank?
   end
+
+  def rating
+    Rating.find_by_user_id_and_beer_id(user.id, beer.id)
+  end
+
 end

@@ -1,9 +1,33 @@
-%ul
-  - activities.each do |activity|
-    %li
-      %p
-        = activity.user.email
-        had
-        = link_to activity.beer.name, activity.beer
-        = time_ago_in_words activity.created_at
-        ago.
+-content_for :feed do
+  .feed-box
+    .title
+      %h3 
+        %strong Recent Activity
+    .box
+      %ul#feed
+        - activities.each do |activity|
+          %li.activity
+            .activity-info
+              %p
+                - if current_user == activity.user
+                  You
+                - else 
+                  = activity.user.email
+                drank 
+                = beer_link activity.beer
+                = time_ago_in_words activity.created_at
+                ago.
+              .activity-beer
+                .thumbnail
+                  = thumbnail activity.beer
+                .beer-info
+                  %h3= beer_link activity.beer
+                  %h4= link_to activity.beer.brewery_name, activity.beer.brewery
+                .rating
+                  - if activity.beer.rated_by_user?(current_user)
+                    .stars
+                      %form
+                        = star_rating(:readonly => true, :rating => activity.rating.score)
+                  .notes
+                    = link_to "Tasting Notes", "#"
+                    = link_to "Review", "#"

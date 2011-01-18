@@ -38,7 +38,7 @@ describe StylesController do
 
     it "should have a link to each of its beers" do
       beer1 = Factory(:beer, :style => @style)
-      beer2 = Factory(:beer, :style => @style, :name => "beer2", :brewery => nil)
+#beer2 = Factory(:beer, :style => @style, :name => "beer2", :brewery => nil)
 
       get :show, :id => @style
       @style.beers.each do |beer|

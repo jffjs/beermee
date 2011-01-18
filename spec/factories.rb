@@ -33,11 +33,12 @@ end
 
 Factory.define(:activity) do |activity|
   activity.association  :beer
-  activity.association  :place
+  activity.association  :user
 end
 
 Factory.define(:rating) do |rating|
   rating.association    :beer
+  rating.association    :user
   rating.score          3
   rating.notes          "Some notes"
 end

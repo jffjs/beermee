@@ -1,0 +1,14 @@
+#actions.content-box
+  .title 
+    %h3 
+      %strong What are you drinking?
+  .box
+    %form
+      %input{ :type => "text" }
+      %input{ :type => 'submit', :value => "Go" }
+    #browse-by
+      %h3 Browse by:
+      %ul
+        %li= link_to "Beers", beers_path
+        %li= link_to "Breweries", breweries_path 
+        %li= link_to "Style", styles_path

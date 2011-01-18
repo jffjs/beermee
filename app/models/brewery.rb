@@ -17,6 +17,7 @@
 
 class Brewery < ActiveRecord::Base
   has_many  :beers
+  has_many  :activities, :through => :beers, :order => "created_at DESC"
   has_one   :address, :as => :addressable
   accepts_nested_attributes_for :address
 
@@ -26,5 +27,5 @@ class Brewery < ActiveRecord::Base
   validates :description, :length   => { :maximum => 1000 }
   validates :website,     :format   => { :with => /^(#{URI::regexp(%w(http https))})$/,
                                          :allow_blank => true }
-  
+    
 end

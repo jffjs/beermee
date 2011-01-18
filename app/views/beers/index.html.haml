@@ -2,8 +2,7 @@
 %h1 Beers
 = link_to "+ Add a beer", new_beer_path, :class => "add_link"
 %br
-%br
 = will_paginate
-%ul.beers
+%ul#beer-list
   = render @beers
 = will_paginate

@@ -7,10 +7,12 @@ module RatingsHelper
   end
 
   def current_user_rating
-    if rating = current_user.ratings.find_by_beer_id(params[:beer])
-      rating.score
-    else
-      0 # default value
+    if user_signed_in?
+      if rating = current_user.ratings.find_by_beer_id(params[:beer])
+        return rating.score
+      end
     end
+
+    return 0 # default value
   end
 end

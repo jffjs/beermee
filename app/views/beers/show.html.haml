@@ -1,41 +1,60 @@
 = title "#{@beer.name} | #{@beer.brewery.name}"
-- content_for :scripts do
-  = javascript_include_tag  'jquery.rating.pack.js', 
-                            'jquery.metadata.js',
-                            'rating.js'
-%h3#showHeadTop
-  = link_to @beer.style.name, @beer.style, :class => "undecorated"
-%h1#showName= @beer.name
-#averageRating
-  = star_rating :readonly => true, :rating => @beer.average_rating
-#showImage
+#show-image.span-4
   = image_tag @beer.image.url(:medium), :alt => @beer.name
-= link_to "Edit", edit_beer_path, :class => "edit_link"
-- if user_signed_in?
-  #userOptions
-    = link_to "I'm drinking this", new_activity_path(:beer => @beer)
-    = render "ratings/star_form"
-#infoSection
-  %p
-    %span.label
-      %strong Brewed by:
-    = link_to @beer.brewery.name, brewery_path(@beer.brewery)
-  - unless @beer.abv.blank?
+#show-info.span-12
+  #show-title
+    %h1= @beer.name
+    = link_to "Edit", edit_beer_path, :class => "edit_link"
+  #average-rating
+    = star_rating :readonly => true, :rating => @beer.average_rating
+  #info
     %p
       %span.label
-        %strong ABV:
-      = "#{@beer.abv} %"
-  - unless @beer.ibu.blank?
+        %strong Brewed by:
+      = link_to @beer.brewery.name, brewery_path(@beer.brewery)
     %p
       %span.label
-        %strong IBUs:
-      = @beer.ibu
-  - unless @beer.original_gravity.blank?
-    %p
-      %span.label
-        %strong>OG:
-      = @beer.original_gravity
-#description
-  = @beer.description
+        %strong Style:
+      = link_to @beer.style.name, style_path(@beer.style)
+
+    - unless @beer.abv.blank?
+      %p
+        %span.label
+          %strong ABV:
+        = "#{@beer.abv} %"
+    - unless @beer.ibu.blank?
+      %p
+        %span.label
+          %strong IBUs:
+        = @beer.ibu
+    - unless @beer.original_gravity.blank?
+      %p
+        %span.label
+          %strong>OG:
+        = @beer.original_gravity
+  #description
+    = @beer.description
+#show-actions.span-8.last
+  - if user_signed_in?
+    #user-options
+      = link_to "I'm drinking this", new_activity_path(:beer => @beer)
+      = render "ratings/star_form"
+
+
+
 = render  :partial => "activities/feed", 
           :locals => { :activities => @beer.activities }
+
+- content_for :aside do
+  .side-box
+    .title
+      %h4
+        %strong Photos
+    .box
+      filler filler
+  .side-box
+    .title
+      %h4
+        %strong Similar Beers
+    .box
+      filler filler

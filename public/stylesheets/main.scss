@@ -1,0 +1,272 @@
+$header-color: #2b2b2b; /*#3f2b09;*/
+$body-color: #fafafa;
+$border-color: #cdcdcd;
+$title-color: #dedede;/*#2C86FC;*/
+
+body {
+  background: $body-color;
+}
+
+header {
+  width: 100%;
+  background: $header-color;
+  border-bottom: 2px solid $border-color;
+  height: 80px;
+
+  #header-container {
+    margin: 0px auto;
+    position: relative;
+    width: 950px;
+  }
+  img.logo {
+    margin-top: 12px;
+  }
+
+  nav {
+    float: right;
+    ul {
+      li {
+        list-style-type: none;
+        display: inline-block;
+        a {
+          padding: 0 5px;
+        }
+      }
+    }
+  }
+}
+
+div#main {
+}
+
+#actions {
+  form, #browse-by {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  input[type=text] {
+    width: 248px;
+    height: 30px;
+  }
+
+  input[type=submit] { 
+    width: 64px;
+    height: 32px;
+  }
+
+  #browse-by {
+    margin-left: 12px;
+    h3, ul {
+      display: inline-block;
+    }
+
+    h3 {
+      padding-top: 4px;
+      vertical-align: top;
+    }
+
+    li {
+      list-style-type: none;
+      text-align: left;
+      a { font-size: 1.5em; }
+    }
+  } 
+}
+
+#feed {
+  li.activity {
+    list-style-type: none;
+    width: 544px;
+    border-bottom: 2px solid $border-color;
+    padding: 4px;
+    margin-bottom: 4px;
+
+    .activity-info, .beer-info, .rating {
+      display:inline-block;
+      vertical-align: top;
+      p { margin-bottom: 6px; }
+    }
+
+    .activity-info {
+      margin-left: 24px;
+
+      .activity-beer {
+        margin-left: 24px;
+        vertical-align: top;
+
+        .beer-info {
+          margin-left: 24px;
+          width: 168px;
+          h3 { margin-bottom: 6px; }
+        }
+
+        .rating {
+          width: 200px;
+          .notes {
+            clear: left;
+            margin-top: 24px;
+            a { 
+              margin-right: 24px;
+            }
+          }
+        }
+
+        .thumbnail {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+
+#show-image {
+}
+
+#show-info {
+
+  #info {
+    clear: left;
+    p { margin: 0px; }
+    span.label { 
+      width: 70px;
+      padding-right: 6px;
+      display: inline-block;
+      text-align: right;
+    }
+  }
+  #show-title {
+    h1 { display: inline-block; }
+    a { 
+      display: inline-block;
+      margin-left: 24px;
+      vertical-align: top
+    }
+  }
+
+  #description {
+    padding-top: 24px;
+  }
+}
+
+#beer-list {
+
+  li.beer-item {
+    list-style-type: none;
+    min-height: 92px;
+
+    .thumb {
+      float: left;
+      margin-right: 12px;
+
+      img { border: 1px solid $border-color; }
+    }
+
+    .beer-brewery {
+      float: left;
+      margin-left: 300px;
+      position: absolute;
+    }
+
+    .rating {
+      float: left;
+      margin-left: 520px;
+      position: absolute;
+    }
+
+    a.delete-link {
+      float: left;
+      margin-left: 700px;
+      position: absolute;
+      font-size: .9em;
+    }
+
+    p { 
+      font-size: 11px; 
+      margin-right: 300px;
+    }
+
+  }
+}
+
+footer {
+  background: $header-color;
+  height: 60px;
+  border-top: 2px solid #cdcdcd;
+
+  nav {
+    ul {
+      text-align: center;
+
+      li {
+        list-style-type: none;
+        display: inline-block;
+        text-align: center;
+        border-right: 1px solid #ccc;
+        padding: 0 8px;
+      }
+
+      li#last-footer {
+        border-right: none;
+      }
+    }
+  }
+}
+
+div.feed-box {
+
+  .title {
+    padding: 8px 10px;
+    background: $title-color;
+    border-bottom: 1px solid $border-color;
+
+    h1, h2, h3, h4, p, a {
+      /*color: $body-color;*/
+      margin: 0px;
+      display: inline-block;
+    }
+
+    a { 
+      text-decoration: underline;
+      float: right;
+    }
+
+  }
+
+  .box {
+    border-right: 2px solid $border-color;
+    background: $body-color;
+  }
+}
+
+div.side-box {
+
+  .title {
+    background: #E5ECF9;
+    border-top: 1px solid $border-color;
+    padding: 8px 10px;
+  }
+
+  h3, h4, p {
+    margin: 0px;
+  }
+
+  .box {
+    background: $body-color;
+  }
+}
+
+.colborder {
+  border-right: 2px solid $border-color;
+}
+
+.round {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 6px;
+}
+
+a {
+  text-decoration: none;
+  &:hover { text-decoration: underline; }
+}
