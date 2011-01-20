@@ -1,6 +1,7 @@
 class BeersController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   autocomplete :brewery, :name, :full => true
+  autocomplete :beer, :name, :full => true
 
   # GET /beers
   def index

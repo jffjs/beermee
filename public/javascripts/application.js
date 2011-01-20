@@ -23,4 +23,6 @@ jQuery(function($) {
     }
   });
 
+  $(".add-button").button({ icons: {primary:'ui-icon-plusthick'} });
+  $(".search-button").button();
 });

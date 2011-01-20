@@ -24,10 +24,9 @@
                   %h3= beer_link activity.beer
                   %h4= link_to activity.beer.brewery_name, activity.beer.brewery
                 .rating
-                  - if activity.beer.rated_by_user?(current_user)
-                    .stars
-                      %form
-                        = star_rating(:readonly => true, :rating => activity.rating.score)
+                  .stars
+                    %form
+                      = star_rating(:readonly => true, :rating => current_user_rating_for(activity.beer))
                   .notes
                     = link_to "Tasting Notes", "#"
                     = link_to "Review", "#"

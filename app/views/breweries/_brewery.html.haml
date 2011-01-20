@@ -1,7 +1,11 @@
-%li.index_item
-  %span.thumb= link_to thumbnail(brewery), brewery
-  %h3= link_to brewery.name, brewery
+%li.brewery-item
+  .thumb
+    = link_to thumbnail(brewery), brewery
   = link_to "delete", brewery,  :method => :delete, 
                                 :confirm => "Are you sure?",
                                 :title => "Delete #{brewery.name}", 
-                                :class => "delete_link"
+                                :class => "delete-link"
+
+  %h3= link_to brewery.name, brewery
+  %p
+    = brewery.description unless brewery.description.nil?

@@ -15,4 +15,14 @@ module RatingsHelper
 
     return 0 # default value
   end
+
+  def current_user_rating_for(beer)
+    if user_signed_in?
+      rating = current_user.ratings.find_by_beer_id(beer.id)
+      return rating.score unless rating.nil?
+    end
+
+    return 0  # no rating
+  end
+        
 end
