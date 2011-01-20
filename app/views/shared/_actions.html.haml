@@ -3,9 +3,9 @@
     %h3 
       %strong What are you drinking?
   .box
-    %form#search-form{ :action => "/search", :method => "get" }
-      = autocomplete_field  :beer, :name, autocomplete_beer_name_beers_path
-      %input.search-button{ :type => "submit", :value => "Search" }
+    = form_for @search, :url => search_index_path, :html => { :method => :get } do |f|
+      = f.autocomplete_field :name_contains, autocomplete_beer_name_beers_path 
+      = f.submit :class => "search-button", :value => "Search"
     #browse-by
       %h3 Browse by:
       %ul

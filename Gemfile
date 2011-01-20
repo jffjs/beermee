@@ -12,6 +12,7 @@ gem 'paperclip'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'rails3-jquery-autocomplete'
 gem 'will_paginate', '~> 3.0.pre2'
+gem 'meta_search'
 
 group :development do
   gem 'rspec-rails', '2.0.0.beta.18'

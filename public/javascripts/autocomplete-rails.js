@@ -20,7 +20,7 @@ $(document).ready(function(){
       source: $(this).attr('data-autocomplete'),
       select: function(event, ui) {
         $(this).val(ui.item.value);
-        $('#search-form').attr('action', '/beers/' + ui.item.id).submit();
+        $('#beer_search').attr('action', '/beers/' + ui.item.id).submit();
         if ($(this).attr('id_element')) {
           $($(this).attr('id_element')).val(ui.item.id);
         }

@@ -15,6 +15,7 @@ Beermee::Application.routes.draw do
   resources :breweries
   resources :places
   resources :styles, :only => [:index, :show]
+  resources :search, :only => [:index]
 
   root :to => "pages#home"
 

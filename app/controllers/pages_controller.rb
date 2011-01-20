@@ -1,9 +1,8 @@
 class PagesController < ApplicationController
 
   def home
-    if user_signed_in?
-      @activities = current_user.activities
-    end
+    @search = Beer.search
+    @activities = current_user.activities if user_signed_in?
 
     respond_to do |format|
       format.html
